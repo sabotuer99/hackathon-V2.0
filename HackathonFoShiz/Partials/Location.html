@@ -2,18 +2,42 @@
 <header>
     
 </header>
+<script>
+  /*  function codeAddress() {
+        var address = document.getElementById("city").value;
+        geocoder.geocode({ 'city': address }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                /*var marker = new google.maps.Marker({
+                    map: map,
+                    position:
+                    
+                console.log(results[0].geometry.location);
+            } else {
+                alert("Geocode was not successful for the following reason: " + status);
+            }
+        });
+    };
+    */
+    $(document).ready(function(){
+      
+
+        $("#testloc").click(function(){
+            {
+             
+            }
+        });
+    });
+</script>
 <form class="filter" name="filterForm">
-
-
     <div id="grid" class="gridStyle" ng-grid="gridOptions" style="height: 200px; width:600px"></div>
     <label>Line 1:</label>
     <input type="text" name="model" ng-model="location.address.address1" ng-required="true" ng-maxlength="50" maxlength="50">{{location.address.address1}}
     <label>Line 2:</label>
     <input type="text" name="addr2" ng-model="location.address.address2" ng-required="true" ng-maxlength="50" maxlength="50">{{location.address.address2}}
     <label>City:</label>
-    <input type="text" name="city" ng-model="location.address.city" ng-required="true" ng-maxlength="100" maxlength="100">{{location.address.city}}
+    <input type="text" name="city" id="city" ng-model="location.address.city" ng-required="true" ng-maxlength="100" maxlength="100" ng-blur="getgeodata()">{{location.address.city}}
     <label>State:</label>
-    <input type="text" name="state" ng-model="location.address.state" ng-required="true" ng-maxlength="100" maxlength="100">{{location.address.state}}
+    <input type="text" name="state" ng-model="location.address.state" ng-required="true" ng-maxlength="100" maxlength="100" ng-blur="getgeodata()">{{location.address.state}}
     <label>State:</label>
     <input type="text" name="state" ng-model="location.address.state" ng-required="true" ng-maxlength="100" maxlength="100">{{location.address.state}}
     <button ng-click="save()">Save Location</button>{{feedback}}
