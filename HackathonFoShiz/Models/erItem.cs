@@ -14,6 +14,10 @@ namespace HackathonFoShiz.Models
         public string Width { get; set; }
         public string Height { get; set; }
         public string Size { get; set; }
+        public string Weight { get; set; }
+        public bool IsActive { get; set; }
+        public virtual ICollection<erHaveItems> LocationsHaveItems { get; set; }
+        public virtual ICollection<erNeedItems> LocationsNeedItems { get; set; }
 
     }
 }
