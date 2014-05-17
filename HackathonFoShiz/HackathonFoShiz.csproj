@@ -171,10 +171,10 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\EmergencyResponseDb.cs" />
-    <Compile Include="Models\Event.cs" />
-    <Compile Include="Models\Location.cs" />
-    <Compile Include="Models\People.cs" />
-    <Compile Include="Models\PeopleLocation.cs" />
+    <Compile Include="Models\erEvent.cs" />
+    <Compile Include="Models\erLocation.cs" />
+    <Compile Include="Models\erPeople.cs" />
+    <Compile Include="Models\erPeopleLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -575,6 +575,11 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Views\Event\Index.cshtml" />
+    <Content Include="Views\Event\Details.cshtml" />
+    <Content Include="Views\Event\Create.cshtml" />
+    <Content Include="Views\Event\Edit.cshtml" />
+    <Content Include="Views\Event\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

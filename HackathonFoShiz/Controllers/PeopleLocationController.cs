@@ -17,15 +17,15 @@ namespace HackathonFoShiz.Controllers
         private EmergencyResponseDb db = new EmergencyResponseDb();
 
         // GET api/PeopleLocation
-        public IEnumerable<PeopleLocation> GetPeopleLocations()
+        public IEnumerable<erPeopleLocation> GetPeopleLocations()
         {
             return db.PeopleLocations.AsEnumerable();
         }
 
         // GET api/PeopleLocation/5
-        public PeopleLocation GetPeopleLocation(int id)
+        public erPeopleLocation GetPeopleLocation(int id)
         {
-            PeopleLocation peoplelocation = db.PeopleLocations.Find(id);
+            erPeopleLocation peoplelocation = db.PeopleLocations.Find(id);
             if (peoplelocation == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
@@ -35,7 +35,7 @@ namespace HackathonFoShiz.Controllers
         }
 
         // PUT api/PeopleLocation/5
-        public HttpResponseMessage PutPeopleLocation(int id, PeopleLocation peoplelocation)
+        public HttpResponseMessage PutPeopleLocation(int id, erPeopleLocation peoplelocation)
         {
             if (!ModelState.IsValid)
             {
@@ -62,7 +62,7 @@ namespace HackathonFoShiz.Controllers
         }
 
         // POST api/PeopleLocation
-        public HttpResponseMessage PostPeopleLocation(PeopleLocation peoplelocation)
+        public HttpResponseMessage PostPeopleLocation(erPeopleLocation peoplelocation)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace HackathonFoShiz.Controllers
         // DELETE api/PeopleLocation/5
         public HttpResponseMessage DeletePeopleLocation(int id)
         {
-            PeopleLocation peoplelocation = db.PeopleLocations.Find(id);
+            erPeopleLocation peoplelocation = db.PeopleLocations.Find(id);
             if (peoplelocation == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);

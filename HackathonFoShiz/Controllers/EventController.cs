@@ -17,37 +17,37 @@ namespace HackathonFoShiz.Controllers
         private EmergencyResponseDb db = new EmergencyResponseDb();
 
         // GET api/Event
-        public IEnumerable<Event> GetEvents()
+        public IEnumerable<erEvent> GeterEvents()
         {
             return db.Events.AsEnumerable();
         }
 
         // GET api/Event/5
-        public Event GetEvent(int id)
+        public erEvent GeterEvent(int id)
         {
-            Event event = db.Events.Find(id);
-            if (event == null)
+            erEvent erevent = db.Events.Find(id);
+            if (erevent == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
             }
 
-            return event;
+            return erevent;
         }
 
         // PUT api/Event/5
-        public HttpResponseMessage PutEvent(int id, Event event)
+        public HttpResponseMessage PuterEvent(int id, erEvent erevent)
         {
             if (!ModelState.IsValid)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
 
-            if (id != event.Id)
+            if (id != erevent.Id)
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
 
-            db.Entry(event).State = EntityState.Modified;
+            db.Entry(erevent).State = EntityState.Modified;
 
             try
             {
@@ -62,15 +62,15 @@ namespace HackathonFoShiz.Controllers
         }
 
         // POST api/Event
-        public HttpResponseMessage PostEvent(Event event)
+        public HttpResponseMessage PosterEvent(erEvent erevent)
         {
             if (ModelState.IsValid)
             {
-                db.Events.Add(event);
+                db.Events.Add(erevent);
                 db.SaveChanges();
 
-                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, event);
-                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = event.Id }));
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, erevent);
+                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = erevent.Id }));
                 return response;
             }
             else
@@ -80,15 +80,15 @@ namespace HackathonFoShiz.Controllers
         }
 
         // DELETE api/Event/5
-        public HttpResponseMessage DeleteEvent(int id)
+        public HttpResponseMessage DeleteerEvent(int id)
         {
-            Event event = db.Events.Find(id);
-            if (event == null)
+            erEvent erevent = db.Events.Find(id);
+            if (erevent == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }
 
-            db.Events.Remove(event);
+            db.Events.Remove(erevent);
 
             try
             {
@@ -99,7 +99,7 @@ namespace HackathonFoShiz.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
             }
 
-            return Request.CreateResponse(HttpStatusCode.OK, event);
+            return Request.CreateResponse(HttpStatusCode.OK, erevent);
         }
 
         protected override void Dispose(bool disposing)
