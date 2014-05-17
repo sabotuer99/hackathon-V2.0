@@ -5,7 +5,7 @@ using System.Web;
 
 namespace HackathonFoShiz.Models
 {
-    public class People
+    public class erPeople
     {
         public int Id { get; set; }
         public string FirstName { get; set; }

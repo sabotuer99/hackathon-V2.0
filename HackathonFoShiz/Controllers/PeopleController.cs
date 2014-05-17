@@ -1,109 +1,111 @@
-﻿using HackathonFoShiz.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web;
-using System.Web.Mvc;
+using System.Web.Http;
+using HackathonFoShiz.Models;
 
 namespace HackathonFoShiz.Controllers
 {
-    public class PeopleController : Controller
+    public class PeopleController : ApiController
     {
-
         private EmergencyResponseDb db = new EmergencyResponseDb();
 
-        //
-        // GET: /People/
-
-        public ActionResult Index()
+        // GET api/People
+        public IEnumerable<erPeople> GetPeople()
         {
-            return Json(db.Peoples.ToList(), JsonRequestBehavior.AllowGet);
+            return db.Peoples.AsEnumerable();
         }
 
-        //
-        // GET: /People/Details/5
-
-        public ActionResult Details(int id)
+        // GET api/People/5
+        public erPeople GetPeople(int id)
         {
-            return Json(db.Peoples.Find(id), JsonRequestBehavior.AllowGet);
+            erPeople people = db.Peoples.Find(id);
+            if (people == null)
+            {
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+            }
+
+            return people;
         }
 
-        //
-        // GET: /People/Create
-        // Sending a GET request to the Create method on the API is not valid
-        public ActionResult Create()
+        // PUT api/People/5
+        public HttpResponseMessage PutPeople(int id, erPeople people)
         {
-            return null;
-        }
+            if (!ModelState.IsValid)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            }
 
-        //
-        // POST: /People/Create
+            if (id != people.Id)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
 
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
+            db.Entry(people).State = EntityState.Modified;
+
             try
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                db.SaveChanges();
             }
-            catch
+            catch (DbUpdateConcurrencyException ex)
             {
-                return View();
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+        // POST api/People
+        public HttpResponseMessage PostPeople(erPeople people)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Peoples.Add(people);
+                db.SaveChanges();
+
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, people);
+                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = people.Id }));
+                return response;
+            }
+            else
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
         }
 
-        //
-        // GET: /People/Edit/5
-
-        public ActionResult Edit(int id)
+        // DELETE api/People/5
+        public HttpResponseMessage DeletePeople(int id)
         {
-            return View();
-        }
+            erPeople people = db.Peoples.Find(id);
+            if (people == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
 
-        //
-        // POST: /People/Edit/5
+            db.Peoples.Remove(people);
 
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                db.SaveChanges();
             }
-            catch
+            catch (DbUpdateConcurrencyException ex)
             {
-                return View();
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
             }
+
+            return Request.CreateResponse(HttpStatusCode.OK, people);
         }
 
-        //
-        // GET: /People/Delete/5
-
-        public ActionResult Delete(int id)
+        protected override void Dispose(bool disposing)
         {
-            return View();
-        }
-
-        //
-        // POST: /People/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            db.Dispose();
+            base.Dispose(disposing);
         }
     }
 }
