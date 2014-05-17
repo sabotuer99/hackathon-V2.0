@@ -165,14 +165,17 @@
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Controllers\PeopleLocationController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\EmergencyResponseDb.cs" />
     <Compile Include="Models\erEvent.cs" />
+    <Compile Include="Models\erHaveItems.cs" />
+    <Compile Include="Models\erItem.cs" />
+    <Compile Include="Models\erItemType.cs" />
     <Compile Include="Models\erLocation.cs" />
+    <Compile Include="Models\erNeedItems.cs" />
     <Compile Include="Models\erPeople.cs" />
     <Compile Include="Models\erPeopleLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
