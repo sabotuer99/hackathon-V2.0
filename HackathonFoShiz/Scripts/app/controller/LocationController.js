@@ -21,18 +21,18 @@ locationControllers.controller('locationControllers', ['$scope', 'locationFactor
         var geocoder;
         var map;
         geocoder = new google.maps.Geocoder();
-        if ($scope.location.address.city && $scope.location.address.state) {
-            var Address = $scope.location.address.city + ', ' + $scope.location.address.state;
+        if ($scope.location.City && $scope.location.State) {
+            var Address = $scope.location.City + ', ' + $scope.location.State;
             console.log("Address");
             //console.log(Address);
             geocoder.geocode({ 'address': Address }, function (results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
                     console.log("success");
                     //console.log(results[0]);
-                    $scope.location.latitude = results[0].geometry.location.lat();
-                    $scope.location.longitude = results[0].geometry.location.lng();
-                    console.log($scope.location.latitude);
-                    console.log($scope.location.longitude);
+                    $scope.location.Latitude = results[0].geometry.location.lat();
+                    $scope.location.Longitude = results[0].geometry.location.lng();
+                    console.log($scope.location.Latitude);
+                    console.log($scope.location.Longitude);
 
                 }
                 else {

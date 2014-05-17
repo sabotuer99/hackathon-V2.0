@@ -82,21 +82,22 @@ gridDirectiveController.controller('gridDirectiveController', ['$scope', '$locat
     }
     $scope.navigate = function (path, row) {
         var isDebug = true;
-        path = path + row.entity.id;
+        console.log(row);
+        path = path + row.entity.Id;
 
         //loggingService.debug(isDebug, 'mainController.navigate - ' + path);
         $location.path(path);
     };
     $scope.edit = function (row) {
         //    	loggingService.debug(isDebug, row);
-        var rowCopy = row.entity.id;
+        var rowCopy = row.entity.Id;
         //loggingService.debug(isDebug, rowCopy);
         $scope.editRow({ row: row });
         //loggingService.debug(isDebug, rowCopy);
     };
     $scope.edit = function (row, event) {
         //    	loggingService.debug(isDebug, row);
-        var rowCopy = row.entity.id;
+        var rowCopy = row.entity.Id;
         //loggingService.debug(isDebug, rowCopy);
         $scope.editRow({ row: row, event: event });
         //loggingService.debug(isDebug, rowCopy);

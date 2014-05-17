@@ -1,4 +1,4 @@
-﻿var mainApp = angular.module('mainApp', ['ngRoute', 'ngGrid', 'ngAnimate', 'locationServices', 'locationControllers', 'locationListController']);
+﻿var mainApp = angular.module('mainApp', ['ngRoute', 'ngGrid', 'ngAnimate', 'locationServices', 'locationControllers', 'locationListController', 'controllersModule', 'gridDirectiveController']);
 
 mainApp.config([
     '$routeProvider',
@@ -7,11 +7,16 @@ mainApp.config([
             when('/location', {
                 templateUrl: '/Partials/Location.html',
                 controller: 'locationControllers'
-            }).
-            when('/locationList', {
+            })
+            .when('/location/:id', {
+                templateUrl: '/Partials/Location.html',
+                controller: 'locationControllers'
+            })
+            .when('/locationList', {
                 templateUrl: '/Partials/LocationList.html',
                 controller: 'locationListController'
             }).
+
             //when('/cards/:cardId', {
             //    templateUrl: '/Scripts/app/Views/detail.html',
             //    controller: 'cardDetailController'

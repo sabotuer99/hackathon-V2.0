@@ -1,6 +1,5 @@
-﻿var pagingFilterGrid = angular.module('pagingFilterGrid', []);
-
-pagingFilterGrid.directive('pagingFilterGrid', ['$scope', function ($scope) {
+﻿var controllersModule = angular.module('controllersModule', []);
+controllersModule.directive('pagingFilterGrid', function () {
     "use strict";
 
     return {
@@ -13,7 +12,7 @@ pagingFilterGrid.directive('pagingFilterGrid', ['$scope', function ($scope) {
 
         },
         controller: "gridDirectiveController",
-        templateUrl: "../Partials/pagingFilterGrid.html"
+        templateUrl: "/Partials/pagingFilterGrid.html"
 
     };
-}]);
+});

@@ -12,7 +12,12 @@
     <script src="http://maps.googleapis.com/maps/api/js"></script>
     <script src="~/Scripts/jquery-1.9.1.min.js"></script>
     <script src="~/Scripts/ng-grid.min.js"></script>
-
+<<<<<<< HEAD
+    <script src="~/Scripts/app/controller/gridDirectiveController.js"></script>
+    <script src="~/Scripts/app/gridDirective.js"></script>
+=======
+    <script src="~/Scripts/app/controller/LocationListController.js"></script>
+>>>>>>> 8e025c09249236f2d996db60e0aad711444e62bf
     <link href="~/Content/ng-grid.css" rel="stylesheet" />
 
 </head>
