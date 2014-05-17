@@ -12,42 +12,42 @@ using HackathonFoShiz.Models;
 
 namespace HackathonFoShiz.Controllers
 {
-    public class LocationController : ApiController
+    public class PeopleLocationController : ApiController
     {
         private EmergencyResponseDb db = new EmergencyResponseDb();
 
-        // GET api/Location
-        public IEnumerable<erLocation> GetLocations()
+        // GET api/PeopleLocation
+        public IEnumerable<erPeopleLocation> GetPeopleLocations()
         {
-            return db.Locations.AsEnumerable();
+            return db.PeopleLocations.AsEnumerable();
         }
 
-        // GET api/Location/5
-        public erLocation GetLocation(int id)
+        // GET api/PeopleLocation/5
+        public erPeopleLocation GetPeopleLocation(int id)
         {
-            erLocation location = db.Locations.Find(id);
-            if (location == null)
+            erPeopleLocation peoplelocation = db.PeopleLocations.Find(id);
+            if (peoplelocation == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
             }
 
-            return location;
+            return peoplelocation;
         }
 
-        // PUT api/Location/5
-        public HttpResponseMessage PutLocation(int id, erLocation location)
+        // PUT api/PeopleLocation/5
+        public HttpResponseMessage PutPeopleLocation(int id, erPeopleLocation peoplelocation)
         {
             if (!ModelState.IsValid)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
 
-            if (id != location.ID)
+            if (id != peoplelocation.Id)
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
 
-            db.Entry(location).State = EntityState.Modified;
+            db.Entry(peoplelocation).State = EntityState.Modified;
 
             try
             {
@@ -61,16 +61,16 @@ namespace HackathonFoShiz.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        // POST api/Location
-        public HttpResponseMessage PostLocation(erLocation location)
+        // POST api/PeopleLocation
+        public HttpResponseMessage PostPeopleLocation(erPeopleLocation peoplelocation)
         {
             if (ModelState.IsValid)
             {
-                db.Locations.Add(location);
+                db.PeopleLocations.Add(peoplelocation);
                 db.SaveChanges();
 
-                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, location);
-                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = location.ID }));
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, peoplelocation);
+                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = peoplelocation.Id }));
                 return response;
             }
             else
@@ -79,16 +79,16 @@ namespace HackathonFoShiz.Controllers
             }
         }
 
-        // DELETE api/Location/5
-        public HttpResponseMessage DeleteLocation(int id)
+        // DELETE api/PeopleLocation/5
+        public HttpResponseMessage DeletePeopleLocation(int id)
         {
-            erLocation location = db.Locations.Find(id);
-            if (location == null)
+            erPeopleLocation peoplelocation = db.PeopleLocations.Find(id);
+            if (peoplelocation == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }
 
-            db.Locations.Remove(location);
+            db.PeopleLocations.Remove(peoplelocation);
 
             try
             {
@@ -99,7 +99,7 @@ namespace HackathonFoShiz.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
             }
 
-            return Request.CreateResponse(HttpStatusCode.OK, location);
+            return Request.CreateResponse(HttpStatusCode.OK, peoplelocation);
         }
 
         protected override void Dispose(bool disposing)

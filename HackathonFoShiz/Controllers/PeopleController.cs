@@ -12,42 +12,42 @@ using HackathonFoShiz.Models;
 
 namespace HackathonFoShiz.Controllers
 {
-    public class LocationController : ApiController
+    public class PeopleController : ApiController
     {
         private EmergencyResponseDb db = new EmergencyResponseDb();
 
-        // GET api/Location
-        public IEnumerable<erLocation> GetLocations()
+        // GET api/People
+        public IEnumerable<erPeople> GetPeople()
         {
-            return db.Locations.AsEnumerable();
+            return db.Peoples.AsEnumerable();
         }
 
-        // GET api/Location/5
-        public erLocation GetLocation(int id)
+        // GET api/People/5
+        public erPeople GetPeople(int id)
         {
-            erLocation location = db.Locations.Find(id);
-            if (location == null)
+            erPeople people = db.Peoples.Find(id);
+            if (people == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
             }
 
-            return location;
+            return people;
         }
 
-        // PUT api/Location/5
-        public HttpResponseMessage PutLocation(int id, erLocation location)
+        // PUT api/People/5
+        public HttpResponseMessage PutPeople(int id, erPeople people)
         {
             if (!ModelState.IsValid)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
 
-            if (id != location.ID)
+            if (id != people.Id)
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
 
-            db.Entry(location).State = EntityState.Modified;
+            db.Entry(people).State = EntityState.Modified;
 
             try
             {
@@ -61,16 +61,16 @@ namespace HackathonFoShiz.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        // POST api/Location
-        public HttpResponseMessage PostLocation(erLocation location)
+        // POST api/People
+        public HttpResponseMessage PostPeople(erPeople people)
         {
             if (ModelState.IsValid)
             {
-                db.Locations.Add(location);
+                db.Peoples.Add(people);
                 db.SaveChanges();
 
-                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, location);
-                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = location.ID }));
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, people);
+                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = people.Id }));
                 return response;
             }
             else
@@ -79,16 +79,16 @@ namespace HackathonFoShiz.Controllers
             }
         }
 
-        // DELETE api/Location/5
-        public HttpResponseMessage DeleteLocation(int id)
+        // DELETE api/People/5
+        public HttpResponseMessage DeletePeople(int id)
         {
-            erLocation location = db.Locations.Find(id);
-            if (location == null)
+            erPeople people = db.Peoples.Find(id);
+            if (people == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }
 
-            db.Locations.Remove(location);
+            db.Peoples.Remove(people);
 
             try
             {
@@ -99,7 +99,7 @@ namespace HackathonFoShiz.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
             }
 
-            return Request.CreateResponse(HttpStatusCode.OK, location);
+            return Request.CreateResponse(HttpStatusCode.OK, people);
         }
 
         protected override void Dispose(bool disposing)

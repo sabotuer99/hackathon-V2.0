@@ -23,10 +23,10 @@ namespace HackathonFoShiz.Models
             }
 
             //public DbSet<UserProfile> UserProfiles { get; set; }
-            public DbSet<Location> Locations { get; set; }
-            public DbSet<Event> Events { get; set; }
-            public DbSet<People> Peoples { get; set; }
-            public DbSet<PeopleLocation> PeopleLocations { get; set; }
+            public DbSet<erLocation> Locations { get; set; }
+            public DbSet<erEvent> Events { get; set; }
+            public DbSet<erPeople> Peoples { get; set; }
+            public DbSet<erPeopleLocation> PeopleLocations { get; set; }
 
             IQueryable<T> IEmergencyResponseDb.Query<T>()
             {
