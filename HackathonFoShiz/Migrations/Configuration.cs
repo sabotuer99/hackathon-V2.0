@@ -55,7 +55,85 @@ namespace HackathonFoShiz.Migrations
                                 ContactId = 3,
                                 EventId = 2,
                                 IsActive = true }
-              );         
+              );
+
+            context.Events.AddOrUpdate(
+                new erEvent
+                {
+                    Name = "Yellowstone Super Volcano Blowout",
+                    BeginDate = Convert.ToDateTime("1/1/14"),
+                    EndDate = Convert.ToDateTime("1/26/14"),
+                    Description = "the super volcano blew!",
+                    IsActive = true
+                },
+
+                new erEvent
+                {
+                    Name = "Fall 2013 Flodding",
+                    BeginDate = Convert.ToDateTime("9/1/13"),
+                    EndDate = Convert.ToDateTime("12/31/13"),
+                    Description = "torrential rains and flooding",
+                    IsActive = true
+                },
+
+                new erEvent
+                {
+                    Name = "The Deep Freeze",
+                    BeginDate = Convert.ToDateTime("2/1/14"),
+                    EndDate = Convert.ToDateTime("2/5/15"),
+                    Description = "torrential rains and flooding",
+                    IsActive = true
+                }
+              );
+
+            context.PeopleLocations.AddOrUpdate(
+                new erPeopleLocation
+                {
+                    PeopleId = 1,
+                    LocationId = 1
+                },
+
+                new erPeopleLocation
+                {
+                    PeopleId = 2,
+                    LocationId = 1
+                },
+
+                new erPeopleLocation
+                {
+                    PeopleId = 3,
+                    LocationId = 2
+                }
+             );
+
+            context.Peoples.AddOrUpdate(
+                new erPeople
+                {
+                    FirstName = "Sam",
+                    LastName = "Smith",
+                    CellPhone = "970-555-1325",
+                    OtherPhone = null,
+                    IsActive = true
+                },
+
+                new erPeople
+                {
+                    FirstName = "Fred",
+                    LastName = "Wilton",
+                    CellPhone = "970-555-1452",
+                    OtherPhone = null,
+                    IsActive = true
+                },
+
+                new erPeople
+                {
+                    FirstName = "George",
+                    LastName = "Lopez",
+                    CellPhone = "307-555-8852",
+                    OtherPhone = null,
+                    IsActive = true
+                }
+            );
         }
     }
 }
