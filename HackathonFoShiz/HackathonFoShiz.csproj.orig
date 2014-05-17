@@ -165,17 +165,14 @@
     <Compile Include="Controllers\LocationController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Controllers\PeopleLocationController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\EmergencyResponseDb.cs" />
     <Compile Include="Models\erEvent.cs" />
-    <Compile Include="Models\erHaveItems.cs" />
-    <Compile Include="Models\erItem.cs" />
-    <Compile Include="Models\erItemType.cs" />
     <Compile Include="Models\erLocation.cs" />
-    <Compile Include="Models\erNeedItems.cs" />
     <Compile Include="Models\erPeople.cs" />
     <Compile Include="Models\erPeopleLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -253,7 +250,6 @@
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="Partials\Location.html" />
     <Content Include="Partials\LocationList.html" />
-    <Content Include="Partials\pagingFilterGrid.html" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-cookies.js" />
@@ -274,10 +270,8 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\app\app.js" />
-    <Content Include="Scripts\app\controller\gridDirectiveController.js" />
     <Content Include="Scripts\app\controller\LocationController.js" />
     <Content Include="Scripts\app\controller\LocationListController.js" />
-    <Content Include="Scripts\app\gridDirective.js" />
     <Content Include="Scripts\app\services\LocationServices.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map" />
@@ -550,6 +544,8 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="TestWeb\map.html" />
+    <Content Include="Scripts\ng-grid.js" />
     <Content Include="Scripts\ng-grid.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
