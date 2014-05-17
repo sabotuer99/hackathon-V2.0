@@ -7,20 +7,21 @@ using System.Web.Mvc;
 
 namespace HackathonFoShiz.Controllers
 {
-    public class LocationController : Controller
+    public class PeopleLocationController : Controller
     {
-        
+
         private EmergencyResponseDb db = new EmergencyResponseDb();
 
         //
-        // GET: /Location/
+        // GET: /PeopleLocation/
+
         public ActionResult Index()
         {
-            return Json(db.Locations.ToList(), JsonRequestBehavior.AllowGet);
+            return Json(db.PeopleLocations.ToList(), JsonRequestBehavior.AllowGet);
         }
 
         //
-        // GET: /Location/Details/5
+        // GET: /PeopleLocation/Details/5
 
         public ActionResult Details(int id)
         {
@@ -28,7 +29,7 @@ namespace HackathonFoShiz.Controllers
         }
 
         //
-        // GET: /Location/Create
+        // GET: /PeopleLocation/Create
 
         public ActionResult Create()
         {
@@ -36,26 +37,25 @@ namespace HackathonFoShiz.Controllers
         }
 
         //
-        // POST: /Location/Create
+        // POST: /PeopleLocation/Create
 
         [HttpPost]
-        public ActionResult Create(Location location)
+        public ActionResult Create(FormCollection collection)
         {
             try
             {
                 // TODO: Add insert logic here
-                db.Locations.Add(location);
-                db.SaveChanges();
-                return Content("Success");
+
+                return RedirectToAction("Index");
             }
             catch
             {
-                return null;
+                return View();
             }
         }
 
         //
-        // GET: /Location/Edit/5
+        // GET: /PeopleLocation/Edit/5
 
         public ActionResult Edit(int id)
         {
@@ -63,7 +63,7 @@ namespace HackathonFoShiz.Controllers
         }
 
         //
-        // POST: /Location/Edit/5
+        // POST: /PeopleLocation/Edit/5
 
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
@@ -81,7 +81,7 @@ namespace HackathonFoShiz.Controllers
         }
 
         //
-        // GET: /Location/Delete/5
+        // GET: /PeopleLocation/Delete/5
 
         public ActionResult Delete(int id)
         {
@@ -89,7 +89,7 @@ namespace HackathonFoShiz.Controllers
         }
 
         //
-        // POST: /Location/Delete/5
+        // POST: /PeopleLocation/Delete/5
 
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
