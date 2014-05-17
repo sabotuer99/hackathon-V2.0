@@ -42,7 +42,7 @@ namespace HackathonFoShiz.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
 
-            if (id != location.ID)
+            if (id != location.Id)
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
@@ -70,7 +70,7 @@ namespace HackathonFoShiz.Controllers
                 db.SaveChanges();
 
                 HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, location);
-                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = location.ID }));
+                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = location.Id }));
                 return response;
             }
             else
