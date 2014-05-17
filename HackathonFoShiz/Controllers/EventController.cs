@@ -1,109 +1,111 @@
-﻿using HackathonFoShiz.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web;
-using System.Web.Mvc;
+using System.Web.Http;
+using HackathonFoShiz.Models;
 
 namespace HackathonFoShiz.Controllers
 {
-    public class EventController : Controller
+    public class EventController : ApiController
     {
-
         private EmergencyResponseDb db = new EmergencyResponseDb();
 
-        //
-        // GET: /Event/
-
-        public ActionResult Index()
+        // GET api/Event
+        public IEnumerable<Event> GetEvents()
         {
-            return Json(db.Events.ToList(), JsonRequestBehavior.AllowGet);
+            return db.Events.AsEnumerable();
         }
 
-        //
-        // GET: /Event/Details/5
-
-        public ActionResult Details(int id)
+        // GET api/Event/5
+        public Event GetEvent(int id)
         {
-            return View();
+            Event event = db.Events.Find(id);
+            if (event == null)
+            {
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+            }
+
+            return event;
         }
 
-        //
-        // GET: /Event/Create
-
-        public ActionResult Create()
+        // PUT api/Event/5
+        public HttpResponseMessage PutEvent(int id, Event event)
         {
-            return null;
-        }
+            if (!ModelState.IsValid)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            }
 
-        //
-        // POST: /Event/Create
+            if (id != event.Id)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
 
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
+            db.Entry(event).State = EntityState.Modified;
+
             try
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                db.SaveChanges();
             }
-            catch
+            catch (DbUpdateConcurrencyException ex)
             {
-                return View();
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+        // POST api/Event
+        public HttpResponseMessage PostEvent(Event event)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Events.Add(event);
+                db.SaveChanges();
+
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, event);
+                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = event.Id }));
+                return response;
+            }
+            else
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
         }
 
-        //
-        // GET: /Event/Edit/5
-
-        public ActionResult Edit(int id)
+        // DELETE api/Event/5
+        public HttpResponseMessage DeleteEvent(int id)
         {
-            return View();
-        }
+            Event event = db.Events.Find(id);
+            if (event == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
 
-        //
-        // POST: /Event/Edit/5
+            db.Events.Remove(event);
 
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                db.SaveChanges();
             }
-            catch
+            catch (DbUpdateConcurrencyException ex)
             {
-                return View();
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
             }
+
+            return Request.CreateResponse(HttpStatusCode.OK, event);
         }
 
-        //
-        // GET: /Event/Delete/5
-
-        public ActionResult Delete(int id)
+        protected override void Dispose(bool disposing)
         {
-            return View();
-        }
-
-        //
-        // POST: /Event/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            db.Dispose();
+            base.Dispose(disposing);
         }
     }
 }
