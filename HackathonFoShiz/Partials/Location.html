@@ -1,0 +1,20 @@
+﻿
+<header>
+    
+</header>
+<form class="filter" name="filterForm">
+
+
+    <div id="grid" class="gridStyle" ng-grid="gridOptions" style="height: 200px; width:600px"></div>
+    <label>Line 1:</label>
+    <input type="text" name="model" ng-model="location.address.address1" ng-required="true" ng-maxlength="50" maxlength="50">{{location.address.address1}}
+    <label>Line 2:</label>
+    <input type="text" name="addr2" ng-model="location.address.address2" ng-required="true" ng-maxlength="50" maxlength="50">{{location.address.address2}}
+    <label>City:</label>
+    <input type="text" name="city" ng-model="location.address.city" ng-required="true" ng-maxlength="100" maxlength="100">{{location.address.city}}
+    <label>State:</label>
+    <input type="text" name="state" ng-model="location.address.state" ng-required="true" ng-maxlength="100" maxlength="100">{{location.address.state}}
+    <label>State:</label>
+    <input type="text" name="state" ng-model="location.address.state" ng-required="true" ng-maxlength="100" maxlength="100">{{location.address.state}}
+    <button ng-click="save()">Save Location</button>{{feedback}}
+</form>
