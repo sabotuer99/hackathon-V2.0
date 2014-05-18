@@ -297,7 +297,7 @@ namespace HackathonFoShiz.Migrations
                     ItemId = 1,
                     Qty = 175,
                     IsActive = true
-                },
+                }
             );
         }
     }
