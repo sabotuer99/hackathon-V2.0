@@ -1,6 +1,6 @@
 ﻿var itemControllers = angular.module('itemControllers', []);
 
-itemControllers.controller('itemControllers', ['$scope', 'itemFactory', function ($scope, itemFactory) {
+itemControllers.controller('itemControllers', ['$scope', '$routeParams', 'itemFactory', function ($scope, $routeParams, itemFactory) {
     $scope.cars = "welcome to cars";
     $scope.saveNewItem = function () {
         console.log("here");

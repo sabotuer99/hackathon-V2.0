@@ -52,11 +52,6 @@ mapControllers.controller('mapControllers', ['$scope','$routeParams', 'locationF
         });
     }
     $scope.bindNewData();
-    //$scope.myData = [{ name: "Moroni", age: 50 },
-    //             { name: "Tiancum", age: 43 },
-    //             { name: "Jacob", age: 27 },
-    //             { name: "Nephi", age: 29 },
-    //             { name: "Enos", age: 34 }];
     $scope.listName = $scope.myData;
     $scope.gridOptions = {
         data: 'myData',
@@ -64,7 +59,7 @@ mapControllers.controller('mapControllers', ['$scope','$routeParams', 'locationF
     };
     function initialise() {
         var myLatlng = new google.maps.LatLng(44,-105); // Add the coordinates
-        locationFactory.listByEventId($scope.event.Id).then(function (data) {
+        locationFactory.listByEvent($scope.event.Id).then(function (data) {
             $scope.myData = data.data;
             var size = $scope.myData.length;
             for (var i = 0; i < size; i++) {
@@ -74,6 +69,7 @@ mapControllers.controller('mapControllers', ['$scope','$routeParams', 'locationF
                 addMarker(addr);
                 myLatlng = new google.maps.LatLng($scope.myData[0].Latitude, $scope.myData[0].Longitude); // Add the coordinates
             }
+
         }, function (error) {
             console.log("error");
             console.log(error);
@@ -84,6 +80,7 @@ mapControllers.controller('mapControllers', ['$scope','$routeParams', 'locationF
             center: myLatlng, // Centre the Map to our coordinates variable
             mapTypeId: google.maps.MapTypeId.ROADMAP, // Set the type of Map
         }
+        console.log(mapOptions);
         var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
         function addMarker(location) {
             marker = new google.maps.Marker({
