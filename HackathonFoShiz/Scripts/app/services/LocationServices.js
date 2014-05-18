@@ -9,6 +9,12 @@ locationServices.factory('locationFactory', function ($http) {
             console.log(url);
             return $http.get(url);
         },
+        listByEvent: function (eventId) {
+            var path = url + "?eventId=" + eventId;
+            console.log("I'm In Location");
+            console.log(path);
+            return $http.get(path);
+        },
         get: function (id) {
             
             var path = url + "?id=" + id;
