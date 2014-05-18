@@ -16,8 +16,8 @@ locationListController.controller('locationListController', ['$scope', 'location
 
     $scope.bindNewData = function () {
         console.log("getting");
-        //locationFactory.list().then(function (data) {
-        locationFactory.listByEvent(1).then(function (data) {
+        locationFactory.list().then(function (data) {
+        //locationFactory.listByEvent(2).then(function (data) {
             $scope.myData = data.data;
             console.log($scope.myData);
             //	        loggingService.debug(isDebug, data);
