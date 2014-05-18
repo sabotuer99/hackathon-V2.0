@@ -11,17 +11,17 @@ mapControllers.controller('mapControllers', ['$scope','$routeParams', 'locationF
         Location: new Array()
     }
     var init = function () {
-        console.log("checking for user");
+        //console.log("checking for user");
 
         if ($routeParams.id != undefined) {
-            console.log($routeParams.id);
+            //console.log($routeParams.id);
             $scope.event.Id = $routeParams.id;
-            console.log($routeParams.id);
-            var id = $routeParams.id;
-            locationFactory.get(id).then(function (data) {
-                console.log(data);
-                $scope.event = data.data;
-            });
+            //console.log($routeParams.id);
+            //var id = $routeParams.id; // you're passing the event id to the location api! Doh!
+            //locationFactory.get(id).then(function (data) {
+            //    console.log(data);
+            //    $scope.event = data.data;
+            //});
             $scope.title = "Update Location";
 
         }
@@ -95,5 +95,6 @@ mapControllers.controller('mapControllers', ['$scope','$routeParams', 'locationF
         
 
     }
-    google.maps.event.addDomListener(window, 'load', initialise); // Execute our 'initialise' function once the page has loaded.
+    //google.maps.event.addDomListener(window, 'load', initialise); // Execute our 'initialise' function once the page has loaded.
+    $(document).ready(initialise);
 }]);
