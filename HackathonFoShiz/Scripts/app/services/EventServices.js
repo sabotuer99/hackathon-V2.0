@@ -15,24 +15,24 @@ eventServices.factory('eventFactory', function ($http) {
             console.log(path);
             return $http.get(path);
         },
-        put: function (location) {
-            return $http.post(url, location);
+        put: function (event) {
+            return $http.post(url, event);
         },
-        del: function (location) {
-            return $http.delete(url + location.Id);
+        del: function (event) {
+            return $http.delete(url + event.Id);
         },
-        update: function (location) {
-            return $http.put(url + location.Id, location);
+        update: function (event) {
+            return $http.put(url + event.Id, event);
         },
-        save: function (location) {
-            console.log(location.Id);
-            if (location.Id != 0) {
+        save: function (event) {
+            console.log(event.Id);
+            if (event.Id != 0) {
                 console.log("updating");
-                return $http.put(url + "?Id=" + location.Id, location);
+                return $http.put(url + "?Id=" + event.Id, event);
             }
             else {
                 console.log("inserting");
-                return $http.post(url, location);
+                return $http.post(url, event);
             }
         }
 

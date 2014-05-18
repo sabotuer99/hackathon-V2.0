@@ -1,7 +1,7 @@
 ﻿<div id="createItem">
     <h1>Create New Item</h1>
     <form class="filter" name="newItemForm">
-        <div id="grid" class="gridStyle" ng-grid="gridOptions" style="height: 200px; width:600px"></div>
+        
         <label>Item Type:</label>
         <input type="text" name="itmtype" ng-model="item.type" ng-required="true" ng-maxlength="50" maxlength="50">{{item.type}}
         <label>Item Description</label>
@@ -19,7 +19,7 @@
 <div id="editItem" ng-show="showEdit
      Item">
     <form class="filter" name="editItemForm">
-        <div id="grid" class="gridStyle" ng-grid="gridOptions" style="height: 200px; width:600px"></div>
+        
         <label>Item Type:</label>
         <input type="text" name="itmtype" ng-model="item.type" ng-required="true" ng-maxlength="50" maxlength="50">{{item.type}}
         <label>Item Description</label>

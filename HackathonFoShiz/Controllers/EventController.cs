@@ -15,16 +15,19 @@ namespace HackathonFoShiz.Controllers
     public class EventController : ApiController
     {
         private EmergencyResponseDb db = new EmergencyResponseDb();
+        
 
         // GET api/Event
         public IEnumerable<erEvent> GeterEvents()
         {
+            db.Configuration.ProxyCreationEnabled = false;
             return db.Events.AsEnumerable();
         }
 
         // GET api/Event/5
         public erEvent GeterEvent(int id)
         {
+            db.Configuration.ProxyCreationEnabled = false;
             erEvent erevent = db.Events.Find(id);
             if (erevent == null)
             {
@@ -34,9 +37,19 @@ namespace HackathonFoShiz.Controllers
             return erevent;
         }
 
+        // GET api/Location/GetLocationsByEventId
+        [HttpGet]
+        public IEnumerable<erEvent> GetEventsByIsActive(bool isActive)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+            var events = db.Events.Where(w => w.IsActive == isActive);
+            return events.AsEnumerable();
+        }
+
         // PUT api/Event/5
         public HttpResponseMessage PuterEvent(int id, erEvent erevent)
         {
+            db.Configuration.ProxyCreationEnabled = false;
             if (!ModelState.IsValid)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
@@ -64,6 +77,7 @@ namespace HackathonFoShiz.Controllers
         // POST api/Event
         public HttpResponseMessage PosterEvent(erEvent erevent)
         {
+            db.Configuration.ProxyCreationEnabled = false;
             if (ModelState.IsValid)
             {
                 db.Events.Add(erevent);
@@ -82,6 +96,7 @@ namespace HackathonFoShiz.Controllers
         // DELETE api/Event/5
         public HttpResponseMessage DeleteerEvent(int id)
         {
+            db.Configuration.ProxyCreationEnabled = false;
             erEvent erevent = db.Events.Find(id);
             if (erevent == null)
             {

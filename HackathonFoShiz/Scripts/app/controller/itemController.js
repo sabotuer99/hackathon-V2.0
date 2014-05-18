@@ -1,11 +1,12 @@
 ﻿var itemControllers = angular.module('itemControllers', []);
 
-itemControllers.controller('itemControllers', ['$scope', 'itemFactory', function ($scope, itemFactory) {
+itemControllers.controller('itemControllers', ['$scope', '$routeParams', 'itemFactory', function ($scope, $routeParams, itemFactory) {
     $scope.cars = "welcome to cars";
     $scope.saveNewItem = function () {
         console.log("here");
         $scope.feedback = "saving";
-        $scope.item = 0;
+        
+        console.log($scope.item);
         itemFactory.save($scope.item).success(function (data) {
             $scope.feedback = "put!";
             alert("Saved Successfully!!");
