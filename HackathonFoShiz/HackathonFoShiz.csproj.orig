@@ -161,8 +161,12 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\HaveItemController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ItemController.cs" />
+    <Compile Include="Controllers\ItemTypeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
+    <Compile Include="Controllers\NeedItemController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Controllers\PeopleLocationController.cs" />
     <Compile Include="Global.asax.cs">
@@ -171,11 +175,11 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\EmergencyResponseDb.cs" />
     <Compile Include="Models\erEvent.cs" />
-    <Compile Include="Models\erHaveItems.cs" />
+    <Compile Include="Models\erHaveItem.cs" />
     <Compile Include="Models\erItem.cs" />
     <Compile Include="Models\erItemType.cs" />
     <Compile Include="Models\erLocation.cs" />
-    <Compile Include="Models\erNeedItems.cs" />
+    <Compile Include="Models\erNeedItem.cs" />
     <Compile Include="Models\erPeople.cs" />
     <Compile Include="Models\erPeopleLocation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -251,7 +255,9 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <Content Include="Partials\CrisisMap.html" />
+ <Content Include="Partials\CrisisMap.html" />
+  <Content Include="Partials\EventSelection.html" />
+
     <Content Include="Partials\Item.html" />
     <Content Include="Partials\Location.html" />
     <Content Include="Partials\LocationList.html" />
@@ -276,16 +282,14 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\app\app.js" />
+    <Content Include="Scripts\app\controller\EventSelectionController.js" />
     <Content Include="Scripts\app\controller\gridDirectiveController.js" />
     <Content Include="Scripts\app\controller\itemController.js" />
     <Content Include="Scripts\app\controller\LocationController.js" />
     <Content Include="Scripts\app\controller\LocationListController.js" />
-<<<<<<< HEAD
     <Content Include="Scripts\app\controller\mapController.js" />
-=======
-    <Content Include="Scripts\app\controller\PersonController.js" />
->>>>>>> 633113727214412a049825786288fbc569275f42
-    <Content Include="Scripts\app\gridDirective.js" />
+ <Content Include="Scripts\app\gridDirective.js" />
+    <Content Include="Scripts\app\services\EventServices.js" />
     <Content Include="Scripts\app\services\ItemServices.js" />
     <Content Include="Scripts\app\services\LocationServices.js" />
     <Content Include="Scripts\errors.json" />
@@ -560,6 +564,13 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\ng-grid.min.js" />
+    <Content Include="Views\Shared\favicon.ico" />
+    <Content Include="Views\Shared\jquery.js" />
+    <Content Include="Views\Shared\script.js" />
+    <Content Include="Views\Shared\script.responsive.js" />
+    <Content Include="Views\Shared\style.css" />
+    <Content Include="Views\Shared\style.ie7.css" />
+    <Content Include="Views\Shared\style.responsive.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

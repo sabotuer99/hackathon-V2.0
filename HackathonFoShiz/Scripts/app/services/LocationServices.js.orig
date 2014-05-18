@@ -6,7 +6,10 @@ locationServices.factory('locationFactory', function ($http) {
     return {
 
         list: function () {
+<<<<<<< HEAD
+=======
             console.log("I'm In Location");
+>>>>>>> 7f0c059ef7d6ac5c755bd5305b6d5768516ce817
             console.log(url);
             return $http.get(url);
         },

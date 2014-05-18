@@ -1,17 +1,17 @@
-﻿var locationServices = angular.module('locationServices', ['ngResource']);
+﻿var eventServices = angular.module('eventServices', ['ngResource']);
 
 
-locationServices.factory('locationFactory', function ($http) {
-    var url = '/Api/Location';
+eventServices.factory('eventFactory', function ($http) {
+    var url = '/Api/Event';
     return {
-
         list: function () {
-            console.log("I'm In Location");
+            console.log("I'm In Event");
             console.log(url);
             return $http.get(url);
         },
         get: function (id) {
-            var path = url + "?id=" + id;
+
+            var path = url + "?Id=" + id;
             console.log(path);
             return $http.get(path);
         },
@@ -28,10 +28,9 @@ locationServices.factory('locationFactory', function ($http) {
             console.log(location.Id);
             if (location.Id != 0) {
                 console.log("updating");
-                return $http.put(url + "?id=" + location.Id, location);
+                return $http.put(url + "?Id=" + location.Id, location);
             }
-            else
-            {
+            else {
                 console.log("inserting");
                 return $http.post(url, location);
             }

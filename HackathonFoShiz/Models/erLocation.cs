@@ -20,6 +20,8 @@ namespace HackathonFoShiz.Models
         public int EventId { get; set; }
         public bool IsActive { get; set; }
 
+        //public virtual erEvent Events { get; set; }
+
 //        public virtual erPeople Contact { get; set; }
 //        public virtual ICollection<erPeople> Peoples { get; set; }
     }
