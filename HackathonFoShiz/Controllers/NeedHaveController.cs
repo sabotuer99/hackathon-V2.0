@@ -26,14 +26,13 @@ namespace HackathonFoShiz.Controllers
 
             IEnumerable<erItemNeedHaveViewModel> needHaves = new List<erItemNeedHaveViewModel>();
 
-            //int lid  = locationId;
             needHaves = from l in db.Locations
                         join n in db.NeedItems on l.Id equals n.LocationId
                         join h in db.HaveItems on n.LocationId equals h.LocationId
                         join i in db.Items on n.ItemId equals i.Id
                         where (locationId == l.Id)
                         orderby l.Id
-                        select new erItemNeedHaveViewModel() 
+                        select new erItemNeedHaveViewModel()
                         {
                             LocationId = l.Id,
                             HaveQty = h.Qty,
@@ -41,6 +40,30 @@ namespace HackathonFoShiz.Controllers
                             ItemId = i.Id,
                             Description = i.Description
                         };
+
+            //needHaves = from l in db.Locations 
+            //            join n in db.NeedItems 
+            //                on l.Id equals n.LocationId 
+            //                into needGroup
+            //            from a in needGroup.DefaultIfEmpty()
+            //            join h in db.HaveItems 
+            //                on a.Id equals h.LocationId 
+            //                into haveGroup
+            //            from b in haveGroup.DefaultIfEmpty()
+            //            join i in db.Items 
+            //                on b.ItemId equals i.Id
+            //                into itemGroup
+            //            from ig in itemGroup.DefaultIfEmpty()
+            //            where (locationId == l.Id)
+            //            orderby l.Id
+            //            select new erItemNeedHaveViewModel()
+            //            {
+            //                LocationId = l.Id,
+            //                HaveQty = a.Qty,
+            //                NeedQty = b.Qty,
+            //                ItemId = ig.Id,
+            //                Description = ig.Description
+            //            };
 
 
             if (needHaves == null)
