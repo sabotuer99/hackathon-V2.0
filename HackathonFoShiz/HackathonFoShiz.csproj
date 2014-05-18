@@ -274,8 +274,8 @@
     <Content Include="Images\header.png" />
     <Content Include="Images\linkedinicon.png" />
     <Content Include="Images\no-avatar.jpg" />
-    <Content Include="Images\object2073207076.png" />
-    <Content Include="Images\object454626314.png" />
+    <!--<Content Include="Images\object2073207076.png" />
+    <Content Include="Images\object454626314.png" />-->
     <Content Include="Images\page.png" />
     <Content Include="Images\pinteresticon.png" />
     <Content Include="Images\postbullets.png" />
@@ -589,7 +589,7 @@
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
-    <None Include="Properties\PublishProfiles\GovDevTeam21.pubxml" />
+    <None Include="Properties\PublishProfiles\GovDevOver9000.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
