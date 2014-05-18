@@ -6,15 +6,12 @@ locationServices.factory('locationFactory', function ($http) {
     return {
 
         list: function () {
+<<<<<<< HEAD
+=======
             console.log("I'm In Location");
+>>>>>>> 7f0c059ef7d6ac5c755bd5305b6d5768516ce817
             console.log(url);
             return $http.get(url);
-        },
-        listByEvent: function (eventId) {
-            var path = url + "?eventId=" + eventId;
-            console.log("I'm In Location");
-            console.log(path);
-            return $http.get(path);
         },
         get: function (id) {
             var path = url + "?id=" + id;
