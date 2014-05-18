@@ -30,6 +30,8 @@
 </script>
 <form class="filter" name="filterForm">
     {{title}}
+    <label>Name:</label>
+    <input type="text" name="model" ng-model="location.Name" ng-required="true" ng-maxlength="50" maxlength="50">{{location.Name}}
     <label>Line 1:</label>
     <input type="text" name="model" ng-model="location.Address1" ng-required="true" ng-maxlength="50" maxlength="50">{{location.Address1}}
     <label>Line 2:</label>

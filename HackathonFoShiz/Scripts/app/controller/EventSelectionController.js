@@ -4,7 +4,7 @@ eventSelectionController.controller('eventSelectionController', ['$scope', 'even
 
     $scope.columnDefs = [
 
-                { field: '', displayName: 'Details', cellTemplate: '<button ng-click="navigate(\'crisismap/\', row)" class="label btn-info"><div class="fs1" aria-hidden="true" data-icon="&#xe005;"></div></button>', width: 50 },
+                { field: '', displayName: 'Details', cellTemplate: '<button ng-click="navigate(\'crisismap/\', row)" class="label btn-info">Select</button>', width: 70 },
                 //{ field:'id', displayName:'id' },
                 { field: 'Name', displayName: 'Name', width: 125 },
                 { field: 'Description', displayName: 'Description' }

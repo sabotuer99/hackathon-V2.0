@@ -71,8 +71,8 @@ locationNeedHaveController.controller('locationNeedHaveController', ['$scope', '
                 //{ field:'id', displayName:'id' },
                 //{ field: 'Address1', displayName: 'Address', width: 125 },
 
-                { field: 'ItemId', displayName: 'item', enableCellEdit: false, cellTemplate: '<input type="text" value= "{{edit(row, \'getItem\')}}"  ng-model="edit(row, \'getItem\')" />' },
-                { field: 'Qty', displayName: 'Total at Location', enableCellEdit: true, cellTemplate: '<input type="number" ng-input="COL_FIELD" ng-model="COL_FIELD" ng-blur="edit(row, \'has\')" />' }
+                { field: 'Description', displayName: 'Description' },
+                { field: 'HaveQty', displayName: 'Total at Location', enableCellEdit: true, cellTemplate: '<input type="number" ng-input="COL_FIELD" ng-model="COL_FIELD" ng-blur="edit(row, \'has\')" />' }
 
 
 
@@ -87,8 +87,8 @@ locationNeedHaveController.controller('locationNeedHaveController', ['$scope', '
             //{ field:'id', displayName:'id' },
             //{ field: 'Address1', displayName: 'Address', width: 125 },
 
-            { field: 'ItemId', displayName: 'item' },
-            { field: 'Qty', displayName: 'Estimated Need', enableCellEdit: true, cellTemplate: '<input type="number" ng-input="COL_FIELD" ng-model="COL_FIELD" ng-blur="edit(row, \'need\')" />' }
+            { field: 'Description', displayName: 'Description' },
+            { field: 'NeedQty', displayName: 'Estimated Need', enableCellEdit: true, cellTemplate: '<input type="number" ng-input="COL_FIELD" ng-model="COL_FIELD" ng-blur="edit(row, \'need\')" />' }
 
     ]
     $scope.sortInfoNeeds = { fields: ['ItemId'], directions: ['asc'] };
