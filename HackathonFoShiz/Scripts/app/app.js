@@ -1,6 +1,7 @@
 ﻿var mainApp = angular.module('mainApp', ['ngRoute', 'ngGrid', 'ngAnimate', 'locationServices',
     'locationControllers', 'locationListController', 'controllersModule', 'gridDirectiveController',
-    'itemControllers', 'itemServices', 'eventServices', 'eventSelectionController', 'mapControllers']);
+    'itemControllers', 'itemServices', 'eventServices', 'eventSelectionController', 'mapControllers',
+    'haveItemServices', 'itemTypeServices', 'needItemServices', 'peopleLocationServices', 'peopleServices']);
 mainApp.config([
     '$routeProvider',
     function ($routeProvider) {

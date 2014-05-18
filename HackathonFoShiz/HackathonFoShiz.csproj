@@ -316,8 +316,13 @@
     <Content Include="Scripts\app\controller\PersonController.js" />
     <Content Include="Scripts\app\gridDirective.js" />
     <Content Include="Scripts\app\services\EventServices.js" />
+    <Content Include="Scripts\app\services\HaveItemServices.js" />
     <Content Include="Scripts\app\services\ItemServices.js" />
+    <Content Include="Scripts\app\services\ItemTypeServices.js" />
     <Content Include="Scripts\app\services\LocationServices.js" />
+    <Content Include="Scripts\app\services\NeedItemServices.js" />
+    <Content Include="Scripts\app\services\PeopleLocationServices.js" />
+    <Content Include="Scripts\app\services\PeopleServices.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map" />
     <Content Include="Scripts\angular-sanitize.min.js.map" />
