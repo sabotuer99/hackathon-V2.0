@@ -22,12 +22,39 @@ namespace HackathonFoShiz.Controllers
             return db.NeedItems.AsEnumerable();
         }
 
-        // GET api/NeedItem/GetNeedsByLocationId
+        //// GET api/NeedItem/GetNeedsByLocationId
+        //[HttpGet]
+        //public IEnumerable<erNeedItem> GetNeedsByLocationId(int locationId)
+        //{
+        //    var needs = db.NeedItems.Where(w => w.LocationId == locationId);
+        //    return needs.AsEnumerable();
+        //}
+
+        // GET api/NeedItem?locationId=x
         [HttpGet]
-        public IEnumerable<erNeedItem> GetNeedsByLocationId(int locationId)
+        public IEnumerable<erNeedItemSimple> GetNeedByLocationId(int locationId)
         {
-            var needs = db.NeedItems.Where(w => w.LocationId == locationId);
-            return needs.AsEnumerable();
+
+
+            db.Configuration.ProxyCreationEnabled = false;
+
+
+            IEnumerable<erNeedItemSimple> needs = new List<erNeedItemSimple>();
+
+            needs = from l in db.Locations
+                    join n in db.NeedItems on l.Id equals n.LocationId
+                    join i in db.Items on n.ItemId equals i.Id
+                    where (locationId == l.Id)
+                    orderby l.Id
+                    select new erNeedItemSimple()
+                    {
+                        LocationId = l.Id,
+                        NeedQty = n.Qty,
+                        ItemId = i.Id,
+                        Description = i.Description
+                    };
+
+            return needs;
         }
 
         // GET api/NeedItem/5
@@ -41,6 +68,9 @@ namespace HackathonFoShiz.Controllers
 
             return erneeditem;
         }
+
+        
+
 
         // PUT api/NeedItem/5
         public HttpResponseMessage PuterNeedItem(int id, erNeedItem erneeditem)

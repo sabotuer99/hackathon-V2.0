@@ -1,7 +1,7 @@
 ﻿var mainApp = angular.module('mainApp', ['ngRoute', 'ngGrid', 'ngAnimate', 'locationServices',
     'locationControllers', 'locationListController', 'controllersModule', 'gridDirectiveController',
     'itemControllers', 'itemServices', 'eventServices', 'eventSelectionController', 'mapControllers',
-    'haveItemServices', 'itemTypeServices', 'needItemServices', 'peopleLocationServices', 'peopleServices']);
+    'haveItemServices', 'itemTypeServices', 'needItemServices', 'peopleLocationServices', 'peopleServices', 'locationNeedHaveController']);
 mainApp.config([
     '$routeProvider',
     function ($routeProvider) {
@@ -33,6 +33,10 @@ mainApp.config([
             when('/crisismap/:id', {
                 templateUrl: '/Partials/CrisisMap.html',
                 controller: 'mapControllers'
+            }).
+            when('/locationNeedHave/:locationId', {
+                templateUrl: '/Partials/LocationNeedHave.html',
+                controller: 'locationNeedHaveController'
             }).
 
             //when('/cards/:cardId', {

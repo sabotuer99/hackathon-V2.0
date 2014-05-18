@@ -22,13 +22,34 @@ namespace HackathonFoShiz.Controllers
             return db.HaveItems.AsEnumerable();
         }
 
-        // GET api/NeedItem/GetNeedsByLocationId
+        // GET api/HaveItem?locationId=x
         [HttpGet]
-        public IEnumerable<erHaveItem> GetHasByLocationId(int locationId)
+        public IEnumerable<erHaveItemSimple> GetHasByLocationId(int locationId)
         {
-            var has = db.HaveItems.Where(w => w.LocationId == locationId);
-            return has.AsEnumerable();
+            //var has = db.HaveItems.Where(w => w.LocationId == locationId);
+            //return has.AsEnumerable();
+
+            db.Configuration.ProxyCreationEnabled = false;
+            //erEvent erevent = db.Events.Find(id);
+
+            IEnumerable<erHaveItemSimple> haves = new List<erHaveItemSimple>();
+
+            haves =  from l in db.Locations
+                        join h in db.HaveItems on l.Id equals h.LocationId
+                        join i in db.Items on h.ItemId equals i.Id
+                        where (locationId == l.Id)
+                        orderby l.Id
+                        select new erHaveItemSimple()
+                        {
+                            LocationId = l.Id,
+                            HaveQty = h.Qty,
+                            ItemId = i.Id,
+                            Description = i.Description
+                        };
+
+            return haves;
         }
+
 
         // GET api/HaveItem/5
         public erHaveItem GeterHaveItem(int id)

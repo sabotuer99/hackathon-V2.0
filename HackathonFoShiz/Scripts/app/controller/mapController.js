@@ -1,6 +1,6 @@
 ﻿var mapControllers = angular.module('mapControllers', []);
 
-mapControllers.controller('mapControllers', ['$scope','$routeParams', 'locationFactory', function ($scope,$routeParams, locationFactory) {
+mapControllers.controller('mapControllers', ['$scope','$routeParams', '$location', 'locationFactory', function ($scope, $routeParams, $location, locationFactory) {
     $scope.event = {
         Id: 0,
         Name: "",
@@ -66,7 +66,7 @@ mapControllers.controller('mapControllers', ['$scope','$routeParams', 'locationF
                 console.log("lat" + $scope.myData[i].Latitude);
                 console.log("long" + $scope.myData[i].Longitude);
                 var addr = new google.maps.LatLng($scope.myData[i].Latitude, $scope.myData[i].Longitude);
-                addMarker(addr);
+                addMarker(addr, $scope.myData[i].Name, $scope.myData[i].Id);
 
             }
 
@@ -86,14 +86,34 @@ mapControllers.controller('mapControllers', ['$scope','$routeParams', 'locationF
         }
         console.log(mapOptions);
         var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-        function addMarker(location) {
+        function addMarker(location, title, id) {
             marker = new google.maps.Marker({
                 position: location,
-                map: map
+                map: map,
+                title: title,
+                url: "#/locationNeedHave/" + id
+
+            });
+            google.maps.event.addListener(marker, 'click', function () {
+
+                var path = "#/locationNeedHave/" + id;
+                $scope.Nav(path);
+                window.location.href = marker.url;
             });
         }
         
 
+    }
+    $scope.btn = function()
+    {
+        var path = "/location/19";
+        $scope.Nav(path);
+    }
+    $scope.Nav = function (path)
+    {
+        console.log(path);
+        $location.path(path);
+        console.log(path)
     }
     //google.maps.event.addDomListener(window, 'load', initialise); // Execute our 'initialise' function once the page has loaded.
     $(document).ready(initialise);

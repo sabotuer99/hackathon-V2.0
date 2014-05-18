@@ -4,8 +4,9 @@ locationListController.controller('locationListController', ['$scope', 'location
 
     $scope.columnDefs = [
 
-                { field: '', displayName: 'Details', cellTemplate: '<button ng-click="navigate(\'location/\', row)" class="label btn-info"><div class="fs1" aria-hidden="true" data-icon="&#xe005;"></div></button>', width: 50 },
+                { field: '', displayName: 'Details', cellTemplate: '<button ng-click="navigate(\'location/\', row)" class="label btn-info">Edit</button>', width: 50 },
                 //{ field:'id', displayName:'id' },
+                { field: 'Name', displayName: 'Name', width: 125 },
                 { field: 'Address1', displayName: 'Address', width: 125 },
                 
                 { field: 'City', displayName: 'City' },
