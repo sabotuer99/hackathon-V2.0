@@ -1,7 +1,38 @@
 ﻿var locationControllers = angular.module('locationControllers', []);
 
-locationControllers.controller('locationControllers', ['$scope', 'locationFactory', function ($scope, locationFactory) {
-    $scope.cars = "welcome to cars";
+locationControllers.controller('locationControllers', ['$scope', '$routeParams', 'locationFactory', function ($scope, $routeParams, locationFactory) {
+    $scope.location = {
+        ID: 0,
+        Name: "",
+        Address1: "",
+        Address2: "",
+        City: "",
+        State: "",
+        Zip: "",
+        Longitude: "",
+        Latitude: "",
+        ContactId: 0,
+        EventId: 0,
+        IsActive: true
+    }
+    $scope.title = "add location";
+    var init = function () {
+        console.log("checking for user");
+        
+        if ($routeParams.id != undefined) {
+            console.log($routeParams.id);
+            $scope.location.Id = $routeParams.id;
+            console.log($routeParams.id);
+            var id = $routeParams.id;
+            locationFactory.get(id).then(function (data) {
+                console.log($routeParams.id);
+                $scope.location = data;
+            });
+            $scope.title = "Update Location";
+
+        }
+    }
+    init();
     $scope.save = function () {
         $scope.feedback = "saving";
         locationFactory.put($scope.location).success(function (data) {
@@ -42,4 +73,5 @@ locationControllers.controller('locationControllers', ['$scope', 'locationFactor
             );
         }
     }
+
 }]);

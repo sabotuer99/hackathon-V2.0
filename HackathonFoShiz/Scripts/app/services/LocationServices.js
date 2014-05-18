@@ -7,7 +7,10 @@ locationServices.factory('locationFactory', function ($http) {
             return $http.get(url);
         },
         get: function (id) {
-            return $http.get(url, id);
+            
+            var path = url + "?id=" + id;
+            console.log(path);
+            return $http.get(path);
         },
         put: function (location) {
             return $http.post(url, location);

@@ -16,14 +16,14 @@ locationListController.controller('locationListController', ['$scope', 'location
 
     $scope.bindNewData = function () {
         console.log("getting");
-        locationFactory.get().then(function (data) {
+        locationFactory.list().then(function (data) {
             $scope.myData = data.data;
             console.log($scope.myData);
             //	        loggingService.debug(isDebug, data);
         }, function (error) {
             console.log("error");
             console.log(error);
-            loggingService.error(error);
+            //loggingService.error(error);
         });
     }
 
