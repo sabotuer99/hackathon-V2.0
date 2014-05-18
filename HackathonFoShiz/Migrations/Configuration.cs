@@ -22,7 +22,7 @@ namespace HackathonFoShiz.Migrations
             //
             context.Locations.AddOrUpdate(
               l => l.Name,
-              new erLocation { Name = "Yellowstone Super Volcano Blowout",
+              new erLocation { Name = "Google GovDev 2014",
                                 Address1 = "1062 Some Street",
                                 Address2 = null,
                                 City = "Cheyenne",
@@ -33,6 +33,31 @@ namespace HackathonFoShiz.Migrations
                                 ContactId = 1,
                                 EventId = 1,
                                 IsActive = true },
+
+              new erLocation { Name = "Google GovDev 2014",
+                                Address1 = "1062 Some Street",
+                                Address2 = null,
+                                City = "Cheyenne",
+                                State = "WY",
+                                Zip = "82002",
+                                Longitude = "122.0000",
+                                Latitude = "32.0000",
+                                ContactId = 1,
+                                EventId = 2,
+                                IsActive = true },
+
+              new erLocation { Name = "Google GovDev 2014",
+                                Address1 = "1062 Some Street",
+                                Address2 = null,
+                                City = "Cheyenne",
+                                State = "WY",
+                                Zip = "82002",
+                                Longitude = "122.0000",
+                                Latitude = "32.0000",
+                                ContactId = 1,
+                                EventId = 3,
+                                IsActive = true },
+
               new erLocation { Name = "Galvanize",
                                 Address1 = "123 Whatever",
                                 Address2 = null,
@@ -54,6 +79,29 @@ namespace HackathonFoShiz.Migrations
                                 Latitude = "38.0000",
                                 ContactId = 3,
                                 EventId = 2,
+                                IsActive = true },
+             new erLocation { Name = "Spaghetti Factory",
+                                Address1 = "9876 Broadway",
+                                Address2 = null,
+                                City = "Englewood",
+                                State = "CO",
+                                Zip = "89966",
+                                Longitude = "115.0000",
+                                Latitude = "38.0000",
+                                ContactId = 3,
+                                EventId = 1,
+                                IsActive = true },
+
+            new erLocation { Name = "Spaghetti Factory",
+                                Address1 = "9876 Broadway",
+                                Address2 = null,
+                                City = "Englewood",
+                                State = "CO",
+                                Zip = "89966",
+                                Longitude = "115.0000",
+                                Latitude = "38.0000",
+                                ContactId = 3,
+                                EventId = 3,
                                 IsActive = true }
               );
 
@@ -69,7 +117,7 @@ namespace HackathonFoShiz.Migrations
 
                 new erEvent
                 {
-                    Name = "Fall 2013 Flodding",
+                    Name = "Fall 2013 Flooding",
                     BeginDate = Convert.ToDateTime("9/1/13"),
                     EndDate = Convert.ToDateTime("12/31/13"),
                     Description = "torrential rains and flooding",
@@ -81,7 +129,7 @@ namespace HackathonFoShiz.Migrations
                     Name = "The Deep Freeze",
                     BeginDate = Convert.ToDateTime("2/1/14"),
                     EndDate = Convert.ToDateTime("2/5/15"),
-                    Description = "torrential rains and flooding",
+                    Description = "sub zero for days on end",
                     IsActive = true
                 }
               );
@@ -133,6 +181,123 @@ namespace HackathonFoShiz.Migrations
                     OtherPhone = null,
                     IsActive = true
                 }
+            );
+
+            context.ItemTypes.AddOrUpdate(
+                new erItemType
+                {
+                    Description = "Non-Perishable Food"
+                },
+
+                new erItemType
+                {
+                    Description = "Water"
+                },
+
+                 new erItemType
+                 {
+                     Description = "Personal Hygiene"
+                 },
+                 
+                 new erItemType
+                 {
+                     Description = "Clothing"
+                 },
+
+                 new erItemType
+                 {
+                     Description = "Bedding Supplies"
+                 }
+            );
+
+            context.Items.AddOrUpdate (
+                new erItem
+                {
+                    TypeId = 1,
+                    Description = "Canned Meat",
+                    Length = "3 inches",
+                    Width = "2 inches",
+                    Height = "3 inches",
+                    Size = "12 ounces",
+                    IsActive = true
+                },
+
+                new erItem
+                {
+                    TypeId = 1,
+                    Description = "Instant Rice",
+                    Length = "12 inches",
+                    Width = "2 inches",
+                    Height = "13 inches",
+                    Size = "24 ounces",
+                    IsActive = true
+                },
+
+                new erItem
+                {
+                    TypeId = 3,
+                    Description = "Toliet Paper",
+                    Length = "3 inches",
+                    Width = "3 inches",
+                    Height = "5 inches",
+                    Size = null,
+                    IsActive = true
+                },
+
+                new erItem
+                {
+                    TypeId = 3,
+                    Description = "Bottled Water",
+                    Length = "2 inches",
+                    Width = "2 inches",
+                    Height = "10 inches",
+                    Size = "10 ounces",
+                    IsActive = true
+                }
+            );
+
+            context.HaveItems.AddOrUpdate(
+                new erHaveItem
+                {
+                    LocationId = 1,
+                    ItemId = 1,
+                    Qty = 15,
+                    IsActive = true
+                },
+
+                new erHaveItem
+                {
+                    LocationId = 2,
+                    ItemId = 2,
+                    Qty = 5,
+                    IsActive = true
+                },
+
+                new erHaveItem
+                {
+                    LocationId = 3,
+                    ItemId = 3,
+                    Qty = 60,
+                    IsActive = true
+                }
+            );
+
+            context.NeedItems.AddOrUpdate(
+                new erNeedItem
+                {
+                    LocationId = 1,
+                    ItemId = 3,
+                    Qty = 15,
+                    IsActive = true
+                },
+
+                new erNeedItem
+                {
+                    LocationId = 2,
+                    ItemId = 1,
+                    Qty = 175,
+                    IsActive = true
+                },
             );
         }
     }
