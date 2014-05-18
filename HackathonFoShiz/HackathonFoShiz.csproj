@@ -285,7 +285,6 @@
     <Content Include="Scripts\app\controller\LocationController.js" />
     <Content Include="Scripts\app\controller\LocationListController.js" />
     <Content Include="Scripts\app\controller\mapController.js" />
-     <Content Include="Scripts\app\controller\mapController.js" />
     <Content Include="Scripts\app\services\ItemServices.js" />
     <Content Include="Scripts\app\services\LocationServices.js" />
     <Content Include="Scripts\errors.json" />

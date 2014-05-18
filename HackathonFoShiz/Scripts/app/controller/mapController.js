@@ -12,11 +12,10 @@ mapControllers.controller('mapControllers', ['$scope', 'locationFactory', functi
                 { field: 'State', displayName: 'state' }
 
     ]
-    //console.log("cd " + $scope.columnDefs);
     $scope.sortInfo = { fields: ['city'], directions: ['asc'] };
-
+    $scope.myData = null;
     $scope.bindNewData = function () {
-        console.log("getting");
+        //console.log("getting");
         locationFactory.list().then(function (data) {
             $scope.myData = data.data;
             console.log($scope.myData);
@@ -27,19 +26,46 @@ mapControllers.controller('mapControllers', ['$scope', 'locationFactory', functi
             //loggingService.error(error);
         });
     }
-
     $scope.bindNewData();
-
-
     //$scope.myData = [{ name: "Moroni", age: 50 },
     //             { name: "Tiancum", age: 43 },
     //             { name: "Jacob", age: 27 },
     //             { name: "Nephi", age: 29 },
     //             { name: "Enos", age: 34 }];
-
     $scope.listName = $scope.myData;
     $scope.gridOptions = {
         data: 'myData',
         columnDefs: $scope.columnDefs
     };
+    function initialise() {
+        var myLatlng = new google.maps.LatLng(44,-105); // Add the coordinates
+        locationFactory.list().then(function (data) {
+            $scope.myData = data.data;
+            var size = $scope.myData.length;
+            for (var i = 0; i < size; i++) {
+                console.log("lat" + $scope.myData[i].Latitude);
+                console.log("long" + $scope.myData[i].Longitude);
+                var addr = new google.maps.LatLng($scope.myData[i].Latitude, $scope.myData[i].Longitude);
+                addMarker(addr);
+                myLatlng = new google.maps.LatLng($scope.myData[0].Latitude, $scope.myData[0].Longitude); // Add the coordinates
+            }
+        }, function (error) {
+            console.log("error");
+            console.log(error);
+        });
+        
+        var mapOptions = {
+            zoom: 8, // The initial zoom level when your map loads (0-20)
+            center: myLatlng, // Centre the Map to our coordinates variable
+            mapTypeId: google.maps.MapTypeId.ROADMAP, // Set the type of Map
+        }
+        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+        function addMarker(location) {
+            marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
+    }
+    google.maps.event.addDomListener(window, 'load', initialise); // Execute our 'initialise' function once the page has loaded.
 }]);
