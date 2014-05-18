@@ -22,6 +22,14 @@ namespace HackathonFoShiz.Controllers
             return db.NeedItems.AsEnumerable();
         }
 
+        // GET api/NeedItem/GetNeedsByLocationId
+        [HttpGet]
+        public IEnumerable<erNeedItem> GetNeedsByLocationId(int locationId)
+        {
+            var needs = db.NeedItems.Where(w => w.LocationId == locationId);
+            return needs.AsEnumerable();
+        }
+
         // GET api/NeedItem/5
         public erNeedItem GeterNeedItem(int id)
         {
