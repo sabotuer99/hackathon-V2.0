@@ -22,6 +22,7 @@ locationServices.factory('locationFactory', function ($http) {
             return $http.put(url + location.Id, location);
         },
         save: function (location) {
+            console.log(location.Id);
             if (location.Id != 0) {
                 console.log("updating");
                 return $http.put(url + "?id=" + location.Id, location);
