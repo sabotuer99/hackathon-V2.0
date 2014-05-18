@@ -552,6 +552,13 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\ng-grid.min.js" />
+    <Content Include="Views\Shared\favicon.ico" />
+    <Content Include="Views\Shared\jquery.js" />
+    <Content Include="Views\Shared\script.js" />
+    <Content Include="Views\Shared\script.responsive.js" />
+    <Content Include="Views\Shared\style.css" />
+    <Content Include="Views\Shared\style.ie7.css" />
+    <Content Include="Views\Shared\style.responsive.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
