@@ -1,6 +1,6 @@
 ﻿var mainApp = angular.module('mainApp', ['ngRoute', 'ngGrid', 'ngAnimate', 'locationServices',
     'locationControllers', 'locationListController', 'controllersModule', 'gridDirectiveController',
-    'itemControllers', 'itemServices', 'eventServices', 'eventSelectionController']);
+    'itemControllers', 'itemServices', 'eventServices', 'eventSelectionController', 'mapControllers']);
 mainApp.config([
     '$routeProvider',
     function ($routeProvider) {
@@ -30,7 +30,6 @@ mainApp.config([
                 controller: 'mapControllers'
             }).
 
-            
             //when('/cards/:cardId', {
             //    templateUrl: '/Scripts/app/Views/detail.html',
             //    controller: 'cardDetailController'
