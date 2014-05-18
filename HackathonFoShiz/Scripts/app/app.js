@@ -28,6 +28,10 @@ mainApp.config([
              when('/crisismap', {
                 templateUrl: '/Partials/CrisisMap.html',
                 controller: 'mapControllers'
+             }).
+            when('/crisismap/:id', {
+                templateUrl: '/Partials/CrisisMap.html',
+                controller: 'mapControllers'
             }).
 
             //when('/cards/:cardId', {
