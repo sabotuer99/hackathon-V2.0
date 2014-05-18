@@ -7,20 +7,20 @@ itemServices.factory('itemFactory', function ($http) {
             return $http.get(url);
         },
         get: function (id) {
-            return $http.get(url, id);
+            return $http.get(url, Id);
         },
         put: function (item) {
             return $http.post(url, item);
         },
         del: function (item) {
-            return $http.delete(url + item.id);
+            return $http.delete(url + item.Id);
         },
         update: function (item) {
             return $http.put(url + item.Id, item);
         },
         save: function (item) {
-        if (item.Id != 0) {
-            console.log("updating");
+        if (item.Id && item.Id != 0) {
+            console.log("save");
             return $http.put(url + "?id=" + item.Id, item);
         }
         else

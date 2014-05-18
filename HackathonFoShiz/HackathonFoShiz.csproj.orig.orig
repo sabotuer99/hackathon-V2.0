@@ -256,9 +256,8 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <Content Include="Partials\CrisisMap.html" />
-    <Content Include="Partials\EventSelection.html" />
-    <Content Include="Partials\Item.html" />
+<<<<<<< HEAD
+<<<<<<< HEAD
     <Content Include="Images\blockbullets.png" />
     <Content Include="Images\checkboxicon.png" />
     <Content Include="Images\footerfacebookicon.png" />
@@ -284,6 +283,16 @@
     <Content Include="Images\tumblricon.png" />
     <Content Include="Images\vimeoicon.png" />
     <Content Include="Images\youtubeicon.png" />
+=======
+    <Content Include="Partials\EventSelection.html" />
+    <Content Include="Partials\Item.html" />
+>>>>>>> 7f0c059ef7d6ac5c755bd5305b6d5768516ce817
+=======
+ <Content Include="Partials\CrisisMap.html" />
+  <Content Include="Partials\EventSelection.html" />
+
+    <Content Include="Partials\Item.html" />
+>>>>>>> f29fa73832cf655e88a06e1a6972fd2b5edb5fc4
     <Content Include="Partials\Location.html" />
     <Content Include="Partials\LocationList.html" />
     <Content Include="Partials\pagingFilterGrid.html" />
@@ -312,9 +321,13 @@
     <Content Include="Scripts\app\controller\itemController.js" />
     <Content Include="Scripts\app\controller\LocationController.js" />
     <Content Include="Scripts\app\controller\LocationListController.js" />
-    <Content Include="Scripts\app\controller\mapController.js" />
+<<<<<<< HEAD
     <Content Include="Scripts\app\controller\PersonController.js" />
     <Content Include="Scripts\app\gridDirective.js" />
+=======
+    <Content Include="Scripts\app\controller\mapController.js" />
+ <Content Include="Scripts\app\gridDirective.js" />
+>>>>>>> f29fa73832cf655e88a06e1a6972fd2b5edb5fc4
     <Content Include="Scripts\app\services\EventServices.js" />
     <Content Include="Scripts\app\services\ItemServices.js" />
     <Content Include="Scripts\app\services\LocationServices.js" />
@@ -591,8 +604,11 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\ng-grid.min.js" />
+<<<<<<< HEAD
     <Content Include="Scripts\script.js" />
     <Content Include="Scripts\script.responsive.js" />
+=======
+>>>>>>> f29fa73832cf655e88a06e1a6972fd2b5edb5fc4
     <Content Include="Views\Shared\favicon.ico" />
     <Content Include="Views\Shared\jquery.js" />
     <Content Include="Views\Shared\script.js" />

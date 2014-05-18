@@ -6,10 +6,10 @@ locationListController.controller('locationListController', ['$scope', 'location
 
                 { field: '', displayName: 'Details', cellTemplate: '<button ng-click="navigate(\'location/\', row)" class="label btn-info"><div class="fs1" aria-hidden="true" data-icon="&#xe005;"></div></button>', width: 50 },
                 //{ field:'id', displayName:'id' },
-                { field: 'Address1', displayName: 'address1', width: 125 },
-                { field: 'Address2', displayName: 'address2' },
-                { field: 'City', displayName: 'city' },
-                { field: 'State', displayName: 'state' }
+                { field: 'Address1', displayName: 'Address', width: 125 },
+                
+                { field: 'City', displayName: 'City' },
+                { field: 'State', displayName: 'State' }
                 
     ]
     $scope.sortInfo = { fields: ['city'], directions: ['asc'] };
