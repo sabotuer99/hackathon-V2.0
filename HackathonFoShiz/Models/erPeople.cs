@@ -14,6 +14,6 @@ namespace HackathonFoShiz.Models
         public string OtherPhone { get; set; }
         public bool IsActive { get; set; }
 
-        public virtual ICollection<erLocation> Locations { get; set; }
+        //public virtual ICollection<erLocation> Locations { get; set; }
     }
 }

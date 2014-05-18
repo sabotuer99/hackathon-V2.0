@@ -13,7 +13,7 @@ namespace HackathonFoShiz.Models
         public int Qty { get; set; }
         public bool IsActive { get; set; }
 
-        public virtual erLocation Location { get; set; }
-        public virtual erItem Item { get; set; }
+       // public virtual erLocation Location { get; set; }
+       // public virtual erItem Item { get; set; }
     }
 }
