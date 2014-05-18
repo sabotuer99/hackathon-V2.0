@@ -2,12 +2,18 @@
 
 
 haveItemServices.factory('haveItemFactory', function ($http) {
-    var url = '/Api/ItemType';
+    var url = '/Api/HaveItem';
     return {
         list: function () {
             console.log("I'm In Have Item");
             console.log(url);
             return $http.get(url);
+        },
+        listByLocation: function (locationId) {
+            console.log("listByLoc");
+            var path = url + "?locationId=" + locationId;
+            console.log(path);
+            return $http.get(path);
         },
         get: function (id) {
 

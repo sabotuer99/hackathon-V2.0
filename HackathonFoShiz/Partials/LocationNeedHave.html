@@ -1,0 +1,9 @@
+﻿<header></header>
+<form class="filter" name="filterForm">
+    <h1>{{location.Name}}</h1>
+    <h3>Has</h3>
+    <paging-filter-grid column-defs="{{columnDefsHas}}" sort-info="sortInfoHas" grid-data="allHasData" edit-row="edit(row, event)"></paging-filter-grid>
+    <h3>Needs</h3>
+    <paging-filter-grid column-defs="{{columnDefsNeeds}}" sort-info="sortInfoNeeds" grid-data="allNeedsData" edit-row="edit(row, event)"></paging-filter-grid>
+    
+</form>
