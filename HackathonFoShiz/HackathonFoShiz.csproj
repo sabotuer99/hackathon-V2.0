@@ -251,6 +251,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="Partials\Item.html" />
     <Content Include="Partials\Location.html" />
     <Content Include="Partials\LocationList.html" />
     <Content Include="Partials\pagingFilterGrid.html" />
@@ -275,9 +276,11 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\controller\gridDirectiveController.js" />
+    <Content Include="Scripts\app\controller\itemController.js" />
     <Content Include="Scripts\app\controller\LocationController.js" />
     <Content Include="Scripts\app\controller\LocationListController.js" />
     <Content Include="Scripts\app\gridDirective.js" />
+    <Content Include="Scripts\app\services\ItemServices.js" />
     <Content Include="Scripts\app\services\LocationServices.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map" />

@@ -1,0 +1,30 @@
+﻿<div id="createItem">
+    <h1>Create New Item</h1>
+    <form class="filter" name="newItemForm">
+        <div id="grid" class="gridStyle" ng-grid="gridOptions" style="height: 200px; width:600px"></div>
+        <label>Item Type:</label>
+        <input type="text" name="itmtype" ng-model="item.type" ng-required="true" ng-maxlength="50" maxlength="50">{{item.type}}
+        <label>Item Description</label>
+        <input type="text" name="itemdescrip" ng-model="item.description" ng-required="true" ng-maxlength="50" maxlength="50"/>{{item.description}}<br />
+        <button ng-click="saveNewItem()">Save New Item</button>{{feedback}}
+    </form>
+</div>
+<h1>Edit Item</h1>
+<div>
+<select data-ng-model="item.editCurrentItem">
+    <option value="">Select an Item</option>
+    <option>Test</option>
+</select>
+</div>
+<div id="editItem" ng-show="showEditItem">
+    <form class="filter" name="editItemForm">
+        <div id="grid" class="gridStyle" ng-grid="gridOptions" style="height: 200px; width:600px"></div>
+        <label>Item Type:</label>
+        <input type="text" name="itmtype" ng-model="item.type" ng-required="true" ng-maxlength="50" maxlength="50">{{item.type}}
+        <label>Item Description</label>
+        <textarea name="itemdescrip" ng-model="item.description" ng-required="true" ng-maxlength="50" maxlength="50" />{{item.description}}
+        <button ng-click="saveEditItem()">Save Edited Item</button>{{feedback}}
+    </form>
+</div>
+
+
