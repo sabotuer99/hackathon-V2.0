@@ -399,40 +399,40 @@ li p, .art-postcontent li p, .art-blockcontent li p
    margin-right: 0 !important;
 }
 
-.art-object2073207076
+.art-object2107113112
 {
     display: block;
     left: 0%;
     margin-left: 0px;
     position: absolute;
     top: 0px;
-    width: 498px;
+    width: 415px;
     height: 150px;
-    background-image: url('../Images/object2073207076.png');
+    background-image: url('../Images/object2107113112.png');
     background-position: 0 0;
     background-repeat: no-repeat;
     z-index: 1;
 }
 
-.default-responsive .art-object2073207076
+.default-responsive .art-object2107113112
 {
   display: none;
-}.art-object454626314
+}.art-object464636792
 {
     display: block;
     left: 100%;
-    margin-left: -287px;
+    margin-left: -288px;
     position: absolute;
     top: 0px;
-    width: 287px;
+    width: 288px;
     height: 150px;
-    background-image: url('../Images/object454626314.png');
+    background-image: url('../Images/object464636792.png');
     background-position: 0 0;
     background-repeat: no-repeat;
     z-index: 2;
 }
 
-.default-responsive .art-object454626314
+.default-responsive .art-object464636792
 {
   display: none;
 }
@@ -840,7 +840,7 @@ ul.art-hmenu ul
    margin:10px auto 0;
    background-repeat: no-repeat;
    height: 150px;
-   background-image: url('../Images/header.png');
+   background-image: url('../Images/header.jpg');
    background-position: center top;
    position: relative;
    min-width: 700px;
@@ -851,14 +851,14 @@ ul.art-hmenu ul
 
 .custom-responsive .art-header
 {
-   background-image: url('../Images/header.png');
+   background-image: url('../Images/header.jpg');
    background-position: center top;
 }
 
 .default-responsive .art-header,
 .default-responsive #art-header-bg
 {
-   background-image: url('../Images/header.png');
+   background-image: url('../Images/header.jpg');
    background-position: center center;
    background-size: cover;
 }
