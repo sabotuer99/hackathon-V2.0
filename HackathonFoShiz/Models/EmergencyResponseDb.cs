@@ -31,6 +31,7 @@ namespace HackathonFoShiz.Models
             public DbSet<erItemType> ItemTypes { get; set; }
             public DbSet<erNeedItem> NeedItems { get; set; }
             public DbSet<erHaveItem> HaveItems { get; set; }
+            public DbSet<usp_GeterEventIsActive1> StoredProc { get; set; }
             
 
             IQueryable<T> IEmergencyResponseDb.Query<T>()

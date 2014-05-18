@@ -44,6 +44,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -170,6 +172,7 @@
     <Compile Include="Controllers\NeedItemController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Controllers\PeopleLocationController.cs" />
+    <Compile Include="Controllers\StoredProcController.cs" />
     <Compile Include="Controllers\usp_GeterEventIsActive_Result.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -185,6 +188,25 @@
     <Compile Include="Models\erPeople.cs" />
     <Compile Include="Models\erPeopleLocation.cs" />
     <Compile Include="Models\erItemNeedHaveViewModel.cs" />
+    <Compile Include="Models\StoredProc.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoredProc.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StoredProc.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoredProc.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StoredProc.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoredProc.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\usp_GeterEventIsActive1.cs" />
+    <Compile Include="Models\usp_GeterEventIsActive_Result.cs">
+      <DependentUpon>StoredProc.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -581,6 +603,23 @@
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
+    <EntityDeploy Include="Models\StoredProc.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>StoredProc.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\StoredProc.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StoredProc.edmx</DependentUpon>
+      <LastGenOutput>StoredProc.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\StoredProc.edmx.diagram">
+      <DependentUpon>StoredProc.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\StoredProc.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StoredProc.edmx</DependentUpon>
+      <LastGenOutput>StoredProc.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -648,6 +687,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
