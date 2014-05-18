@@ -1,5 +1,5 @@
-﻿var mainApp = angular.module('mainApp', ['ngRoute', 'ngGrid', 'ngAnimate', 'locationServices', 'locationControllers', 'locationListController', 'controllersModule', 'gridDirectiveController','itemControllers','itemServices']);
-
+﻿var mainApp = angular.module('mainApp', ['ngRoute', 'ngGrid', 'ngAnimate', 'locationServices', 'locationControllers', 'locationListController', 'controllersModule', 'gridDirectiveController','itemControllers','itemServices','mapControllers']);
+console.log("here");
 mainApp.config([
     '$routeProvider',
     function ($routeProvider) {
@@ -19,6 +19,10 @@ mainApp.config([
             when('/item', {
                 templateUrl: '/Partials/Item.html',
                 controller: 'itemControllers'
+            }).
+            when('/crisismap', {
+                templateUrl: '/Partials/CrisisMap.html',
+                controller: 'mapControllers'
             }).
             
             //when('/cards/:cardId', {

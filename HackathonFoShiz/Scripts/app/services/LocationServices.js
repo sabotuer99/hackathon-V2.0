@@ -1,13 +1,15 @@
 ﻿var locationServices = angular.module('locationServices', ['ngResource']);
 
-var url = '/Api/Location';
+
 locationServices.factory('locationFactory', function ($http) {
+    var url = '/Api/Location';
     return {
+
         list: function () {
+            console.log(url);
             return $http.get(url);
         },
         get: function (id) {
-            
             var path = url + "?id=" + id;
             console.log(path);
             return $http.get(path);

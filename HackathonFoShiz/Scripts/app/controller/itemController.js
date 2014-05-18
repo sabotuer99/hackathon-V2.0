@@ -5,6 +5,7 @@ itemControllers.controller('itemControllers', ['$scope', 'itemFactory', function
     $scope.saveNewItem = function () {
         console.log("here");
         $scope.feedback = "saving";
+        $scope.item = 0;
         itemFactory.save($scope.item).success(function (data) {
             $scope.feedback = "put!";
             alert("Saved Successfully!!");
