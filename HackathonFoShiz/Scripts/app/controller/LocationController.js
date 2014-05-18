@@ -2,7 +2,7 @@
 
 locationControllers.controller('locationControllers', ['$scope', '$routeParams', 'locationFactory', function ($scope, $routeParams, locationFactory) {
     $scope.location = {
-        ID: 0,
+        Id: 0,
         Name: "",
         Address1: "",
         Address2: "",

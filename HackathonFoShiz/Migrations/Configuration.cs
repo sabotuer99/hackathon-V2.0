@@ -2,6 +2,7 @@ namespace HackathonFoShiz.Migrations
 {
     using HackathonFoShiz.Models;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -22,41 +23,50 @@ namespace HackathonFoShiz.Migrations
             //
             context.Locations.AddOrUpdate(
               l => l.Name,
-              new erLocation { Name = "Google GovDev 2014",
-                                Address1 = "1062 Some Street",
-                                Address2 = null,
-                                City = "Cheyenne",
-                                State = "WY",
-                                Zip = "82002",
-                                Longitude = "122.0000",
-                                Latitude = "32.0000",
-                                ContactId = 1,
-                                EventId = 1,
-                                IsActive = true },
+              new erLocation
+              {
+                  Name = "Google GovDev 2014",
+                  Address1 = "1062 Some Street",
+                  Address2 = null,
+                  City = "Cheyenne",
+                  State = "WY",
+                  Zip = "82002",
+                  Longitude = "122.0000",
+                  Latitude = "32.0000",
+                  ContactId = 1,
+                  EventId = 1,
+                  IsActive = true
+              },
 
-              new erLocation { Name = "Google GovDev 2014",
-                                Address1 = "1062 Some Street",
-                                Address2 = null,
-                                City = "Cheyenne",
-                                State = "WY",
-                                Zip = "82002",
-                                Longitude = "122.0000",
-                                Latitude = "32.0000",
-                                ContactId = 1,
-                                EventId = 2,
-                                IsActive = true },
+              new erLocation
+              {
+                  Name = "Test Location 1",
+                  Address1 = "1062 Some Street",
+                  Address2 = null,
+                  City = "Cheyenne",
+                  State = "WY",
+                  Zip = "82002",
+                  Longitude = "122.0000",
+                  Latitude = "32.0000",
+                  ContactId = 1,
+                  EventId = 2,
+                  IsActive = true
+              },
 
-              new erLocation { Name = "Google GovDev 2014",
-                                Address1 = "1062 Some Street",
-                                Address2 = null,
-                                City = "Cheyenne",
-                                State = "WY",
-                                Zip = "82002",
-                                Longitude = "122.0000",
-                                Latitude = "32.0000",
-                                ContactId = 1,
-                                EventId = 3,
-                                IsActive = true },
+              new erLocation
+              {
+                  Name = "TestLocation 2",
+                  Address1 = "1062 Some Street",
+                  Address2 = null,
+                  City = "Cheyenne",
+                  State = "WY",
+                  Zip = "82002",
+                  Longitude = "122.0000",
+                  Latitude = "32.0000",
+                  ContactId = 1,
+                  EventId = 3,
+                  IsActive = true
+              },
 
               new erLocation { Name = "Galvanize",
                                 Address1 = "123 Whatever",
@@ -80,7 +90,7 @@ namespace HackathonFoShiz.Migrations
                                 ContactId = 3,
                                 EventId = 2,
                                 IsActive = true },
-             new erLocation { Name = "Spaghetti Factory",
+             new erLocation { Name = "Another test location",
                                 Address1 = "9876 Broadway",
                                 Address2 = null,
                                 City = "Englewood",
@@ -92,7 +102,7 @@ namespace HackathonFoShiz.Migrations
                                 EventId = 1,
                                 IsActive = true },
 
-            new erLocation { Name = "Spaghetti Factory",
+            new erLocation { Name = "Frontier Mall",
                                 Address1 = "9876 Broadway",
                                 Address2 = null,
                                 City = "Englewood",
@@ -102,17 +112,55 @@ namespace HackathonFoShiz.Migrations
                                 Latitude = "38.0000",
                                 ContactId = 3,
                                 EventId = 3,
-                                IsActive = true }
+                                IsActive = true}
               );
 
             context.Events.AddOrUpdate(
+                l => l.Name,
                 new erEvent
                 {
                     Name = "Yellowstone Super Volcano Blowout",
                     BeginDate = Convert.ToDateTime("1/1/14"),
                     EndDate = Convert.ToDateTime("1/26/14"),
                     Description = "the super volcano blew!",
-                    IsActive = true
+                    IsActive = true,
+                    Locations = context.Locations.Where(s => s.EventId == 1).ToList()
+                    
+                    
+                    //new List<erLocation> {
+                    //    new erLocation { Name = "Google GovDev 2014",
+                    //            Address1 = "1062 Some Street",
+                    //            Address2 = null,
+                    //            City = "Cheyenne",
+                    //            State = "WY",
+                    //            Zip = "82002",
+                    //            Longitude = "122.0000",
+                    //            Latitude = "32.0000",
+                    //            ContactId = 1,
+                    //            IsActive = true },
+
+                    //   new erLocation { Name = "Test Location 1",
+                    //            Address1 = "1062 Some Street",
+                    //            Address2 = null,
+                    //            City = "Cheyenne",
+                    //            State = "WY",
+                    //            Zip = "82002",
+                    //            Longitude = "122.0000",
+                    //            Latitude = "32.0000",
+                    //            ContactId = 1,
+                    //            IsActive = true },
+
+                    //    new erLocation { Name = "TestLocation 2",
+                    //            Address1 = "1062 Some Street",
+                    //            Address2 = null,
+                    //            City = "Cheyenne",
+                    //            State = "WY",
+                    //            Zip = "82002",
+                    //            Longitude = "122.0000",
+                    //            Latitude = "32.0000",
+                    //            ContactId = 1,
+                    //            IsActive = true }
+                    //}
                 },
 
                 new erEvent
@@ -155,6 +203,7 @@ namespace HackathonFoShiz.Migrations
              );
 
             context.Peoples.AddOrUpdate(
+                l => l.FirstName,
                 new erPeople
                 {
                     FirstName = "Sam",
@@ -184,6 +233,7 @@ namespace HackathonFoShiz.Migrations
             );
 
             context.ItemTypes.AddOrUpdate(
+                l => l.Description,
                 new erItemType
                 {
                     Description = "Non-Perishable Food"
@@ -211,6 +261,7 @@ namespace HackathonFoShiz.Migrations
             );
 
             context.Items.AddOrUpdate (
+                l => l.Description,
                 new erItem
                 {
                     TypeId = 1,
@@ -257,6 +308,7 @@ namespace HackathonFoShiz.Migrations
             );
 
             context.HaveItems.AddOrUpdate(
+                l => l.ItemId,
                 new erHaveItem
                 {
                     LocationId = 1,
@@ -283,6 +335,7 @@ namespace HackathonFoShiz.Migrations
             );
 
             context.NeedItems.AddOrUpdate(
+                l => l.ItemId,
                 new erNeedItem
                 {
                     LocationId = 1,

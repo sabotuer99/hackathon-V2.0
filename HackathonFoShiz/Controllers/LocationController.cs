@@ -22,6 +22,14 @@ namespace HackathonFoShiz.Controllers
             return db.Locations.AsEnumerable();
         }
 
+        // GET api/Location/GetLocationsByEventId
+        [HttpGet]
+        public IEnumerable<erLocation> GetLocationsByEventId(int eventId)
+        {
+            var locations = db.Locations.Where(w => w.EventId == eventId);
+            return locations.AsEnumerable();
+        }
+
         // GET api/Location/5
         public erLocation GetLocation(int id)
         {

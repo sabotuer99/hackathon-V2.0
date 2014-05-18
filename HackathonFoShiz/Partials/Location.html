@@ -33,12 +33,12 @@
     <label>Line 1:</label>
     <input type="text" name="model" ng-model="location.Address1" ng-required="true" ng-maxlength="50" maxlength="50">{{location.Address1}}
     <label>Line 2:</label>
-    <input type="text" name="addr2" ng-model="location.Address2" ng-required="true" ng-maxlength="50" maxlength="50">{{location.Address2}}
+    <input type="text" name="addr2" ng-model="location.Address2"  ng-maxlength="50" maxlength="50">{{location.Address2}}
     <label>City:</label>
     <input type="text" name="city" id="city" ng-model="location.City" ng-required="true" ng-maxlength="100" maxlength="100" ng-blur="getgeodata()">{{location.City}}
     <label>State:</label>
     <input type="text" name="state" ng-model="location.State" ng-required="true" ng-maxlength="100" maxlength="100" ng-blur="getgeodata()">{{location.State}}
-    <label>State:</label>
-    <input type="text" name="state" ng-model="location.address.state" ng-required="true" ng-maxlength="100" maxlength="100">{{location.address.state}}
+    <label>Zip:</label>
+    <input type="text" name="state" ng-model="location.Zip" ng-required="true" ng-maxlength="100" maxlength="100">{{location.Zip}}
     <button ng-click="save()">Save Location</button>{{feedback}}
 </form>
