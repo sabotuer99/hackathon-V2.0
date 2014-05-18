@@ -169,6 +169,7 @@
     <Compile Include="Controllers\NeedItemController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Controllers\PeopleLocationController.cs" />
+    <Compile Include="Controllers\usp_GeterEventIsActive_Result.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
