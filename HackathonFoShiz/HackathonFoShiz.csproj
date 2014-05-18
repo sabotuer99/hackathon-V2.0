@@ -256,9 +256,8 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
- <Content Include="Partials\CrisisMap.html" />
-  <Content Include="Partials\EventSelection.html" />
-
+    <Content Include="Partials\CrisisMap.html" />
+    <Content Include="Partials\EventSelection.html" />
     <Content Include="Partials\Item.html" />
     <Content Include="Images\blockbullets.png" />
     <Content Include="Images\checkboxicon.png" />
@@ -314,7 +313,8 @@
     <Content Include="Scripts\app\controller\LocationController.js" />
     <Content Include="Scripts\app\controller\LocationListController.js" />
     <Content Include="Scripts\app\controller\mapController.js" />
- <Content Include="Scripts\app\gridDirective.js" />
+    <Content Include="Scripts\app\controller\PersonController.js" />
+    <Content Include="Scripts\app\gridDirective.js" />
     <Content Include="Scripts\app\services\EventServices.js" />
     <Content Include="Scripts\app\services\ItemServices.js" />
     <Content Include="Scripts\app\services\LocationServices.js" />
