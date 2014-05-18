@@ -58,7 +58,7 @@ mapControllers.controller('mapControllers', ['$scope','$routeParams', 'locationF
         columnDefs: $scope.columnDefs
     };
     function initialise() {
-        var myLatlng = new google.maps.LatLng(44,-105); // Add the coordinates
+        $scope.myLatlng = new google.maps.LatLng(44,-105); // Add the coordinates
         locationFactory.listByEvent($scope.event.Id).then(function (data) {
             $scope.myData = data.data;
             var size = $scope.myData.length;
@@ -67,18 +67,22 @@ mapControllers.controller('mapControllers', ['$scope','$routeParams', 'locationF
                 console.log("long" + $scope.myData[i].Longitude);
                 var addr = new google.maps.LatLng($scope.myData[i].Latitude, $scope.myData[i].Longitude);
                 addMarker(addr);
-                myLatlng = new google.maps.LatLng($scope.myData[0].Latitude, $scope.myData[0].Longitude); // Add the coordinates
+
             }
+
+
 
         }, function (error) {
             console.log("error");
             console.log(error);
         });
-        
         var mapOptions = {
-            zoom: 8, // The initial zoom level when your map loads (0-20)
-            center: myLatlng, // Centre the Map to our coordinates variable
+            zoom: 6, // The initial zoom level when your map loads (0-20)
+            center: $scope.myLatlng, // Centre the Map to our coordinates variable
             mapTypeId: google.maps.MapTypeId.ROADMAP, // Set the type of Map
+            panControl: true,
+            zoomControl: true,
+            scaleControl: true
         }
         console.log(mapOptions);
         var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
@@ -88,6 +92,8 @@ mapControllers.controller('mapControllers', ['$scope','$routeParams', 'locationF
                 map: map
             });
         }
+        
+
     }
     google.maps.event.addDomListener(window, 'load', initialise); // Execute our 'initialise' function once the page has loaded.
 }]);
