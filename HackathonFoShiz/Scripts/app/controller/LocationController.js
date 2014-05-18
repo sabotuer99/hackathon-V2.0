@@ -25,8 +25,8 @@ locationControllers.controller('locationControllers', ['$scope', '$routeParams',
             console.log($routeParams.id);
             var id = $routeParams.id;
             locationFactory.get(id).then(function (data) {
-                console.log($routeParams.id);
-                $scope.location = data;
+                console.log(data);
+                $scope.location = data.data;
             });
             $scope.title = "Update Location";
 
@@ -35,7 +35,7 @@ locationControllers.controller('locationControllers', ['$scope', '$routeParams',
     init();
     $scope.save = function () {
         $scope.feedback = "saving";
-        locationFactory.put($scope.location).success(function (data) {
+        locationFactory.save($scope.location).success(function (data) {
             $scope.feedback = "put!";
             alert("Saved Successfully!!");
             //cust.editMode = false;

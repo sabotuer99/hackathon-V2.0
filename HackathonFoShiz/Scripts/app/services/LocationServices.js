@@ -16,10 +16,21 @@ locationServices.factory('locationFactory', function ($http) {
             return $http.post(url, location);
         },
         del: function (location) {
-            return $http.delete(url + location.id);
+            return $http.delete(url + location.Id);
         },
         update: function (location) {
             return $http.put(url + location.Id, location);
+        },
+        save: function (location) {
+            if (location.Id != 0) {
+                console.log("updating");
+                return $http.put(url + "?id=" + location.Id, location);
+            }
+            else
+            {
+                console.log("inserting");
+                return $http.post(url, location);
+            }
         }
 
     };
