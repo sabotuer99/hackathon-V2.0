@@ -7,7 +7,10 @@ itemServices.factory('itemFactory', function ($http) {
             return $http.get(url);
         },
         get: function (id) {
-            return $http.get(url, Id);
+
+            var path = url + "?Id=" + id;
+            console.log(path);
+            return $http.get(path);
         },
         put: function (item) {
             return $http.post(url, item);
