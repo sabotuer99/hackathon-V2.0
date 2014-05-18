@@ -10,5 +10,8 @@ namespace HackathonFoShiz.Models
         public int Id { get; set; }
         public int PeopleId { get; set; }
         public int LocationId { get; set; }
+
+        //public virtual erPeople Person { get; set; }
+        //public virtual erLocation Location { get; set; }
     }
 }
