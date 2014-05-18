@@ -307,51 +307,65 @@ namespace HackathonFoShiz.Migrations
                 }
             );
 
-            context.HaveItems.AddOrUpdate(
-                l => l.ItemId,
+            int min = context.Locations.Min(x => x.Id);
+            int count = context.Locations.Count();
+            for (int i = min; i < (min + count); i++)
+            {
+                context.HaveItems.AddOrUpdate(
+                l => new {l.LocationId, l.ItemId },
                 new erHaveItem
                 {
-                    LocationId = 1,
+                    LocationId = i,
                     ItemId = 1,
-                    Qty = 15,
+                    Qty = 15 + i,
                     IsActive = true
                 },
 
                 new erHaveItem
                 {
-                    LocationId = 2,
+                    LocationId = i,
                     ItemId = 2,
-                    Qty = 5,
+                    Qty = 5 + i,
                     IsActive = true
                 },
 
                 new erHaveItem
                 {
-                    LocationId = 3,
+                    LocationId = i,
                     ItemId = 3,
-                    Qty = 60,
+                    Qty = 60 - i,
                     IsActive = true
                 }
+
             );
 
-            context.NeedItems.AddOrUpdate(
-                l => l.ItemId,
-                new erNeedItem
-                {
-                    LocationId = 1,
-                    ItemId = 3,
-                    Qty = 15,
-                    IsActive = true
-                },
+                context.NeedItems.AddOrUpdate(
+                    l => new { l.LocationId, l.ItemId },
+                    new erNeedItem
+                    {
+                        LocationId = i,
+                        ItemId = 3,
+                        Qty = 15 + i,
+                        IsActive = true
+                    },
 
-                new erNeedItem
-                {
-                    LocationId = 2,
-                    ItemId = 1,
-                    Qty = 175,
-                    IsActive = true
-                }
-            );
+                    new erNeedItem
+                    {
+                        LocationId = i,
+                        ItemId = 2,
+                        Qty = 17 + i,
+                        IsActive = true
+                    },
+
+                    new erNeedItem
+                    {
+                        LocationId = i,
+                        ItemId = 1,
+                        Qty = 175 - i,
+                        IsActive = true
+                    }
+                );
+            }
         }
     }
 }

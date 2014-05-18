@@ -166,6 +166,7 @@
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\ItemTypeController.cs" />
     <Compile Include="Controllers\LocationController.cs" />
+    <Compile Include="Controllers\NeedHaveController.cs" />
     <Compile Include="Controllers\NeedItemController.cs" />
     <Compile Include="Controllers\PeopleController.cs" />
     <Compile Include="Controllers\PeopleLocationController.cs" />
@@ -182,13 +183,13 @@
     <Compile Include="Models\erNeedItem.cs" />
     <Compile Include="Models\erPeople.cs" />
     <Compile Include="Models\erPeopleLocation.cs" />
+    <Compile Include="Models\erItemNeedHaveViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\ng-grid.css" />
     <Content Include="Content\ng-grid.min.css" />
-    <Content Include="Content\style.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -256,6 +257,10 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="Images\header.jpg" />
+    <Content Include="Images\object2107113112.png" />
+    <Content Include="Images\object464636792.png" />
+    <Content Include="jquery.js" />
     <Content Include="Partials\CrisisMap.html" />
     <Content Include="Partials\EventSelection.html" />
     <Content Include="Partials\Item.html" />
@@ -288,6 +293,8 @@
     <Content Include="Partials\LocationList.html" />
     <Content Include="Partials\LocationNeedHave.html" />
     <Content Include="Partials\pagingFilterGrid.html" />
+    <Content Include="script.js" />
+    <Content Include="script.responsive.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-cookies.js" />
@@ -580,6 +587,7 @@
     <Content Include="Scripts\i18n\angular-locale_zu-za.js" />
     <Content Include="Scripts\i18n\angular-locale_zu.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
+    <None Include="Properties\PublishProfiles\GovDevTeam21.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -600,13 +608,9 @@
     <Content Include="Scripts\ng-grid.min.js" />
     <Content Include="Scripts\script.js" />
     <Content Include="Scripts\script.responsive.js" />
-    <Content Include="Views\Shared\favicon.ico" />
-    <Content Include="Views\Shared\jquery.js" />
-    <Content Include="Views\Shared\script.js" />
-    <Content Include="Views\Shared\script.responsive.js" />
-    <Content Include="Views\Shared\style.css" />
-    <Content Include="Views\Shared\style.ie7.css" />
-    <Content Include="Views\Shared\style.responsive.css" />
+    <Content Include="style.css" />
+    <Content Include="style.ie7.css" />
+    <Content Include="style.responsive.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -4,12 +4,24 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
     
+    <!--[if lt IE 9]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <link rel="stylesheet" href="@Url.Content("~/style.css")" media="screen">
+    <!--[if lte IE 7]><link rel="stylesheet" href="style.ie7.css" media="screen" /><![endif]-->
+    <link rel="stylesheet" href="@Url.Content("~/style.responsive.css")" media="all">
+    
+    <script src="@Url.Content("~/jquery.js")"></script>
+    <script src="@Url.Content("~/script.js")"></script>
+    <script src="@Url.Content("~/script.responsive.js")"></script>
+
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
+
     @Scripts.Render("~/bundles/modernizr")
-    <link rel="shortcut icon" href="~/Views/Shared/favicon.ico" type="image/x-icon">
+    
     @Scripts.Render("~/bundles/jquery")
+    
     @RenderSection("scripts", required: false)
+
+
 
         <style>
             .art-content .art-postcontent-0 .layout-item-0 {
@@ -42,8 +54,8 @@
             <header class="art-header">
 
                 <div class="art-shapes">
-                    <div class="art-object2073207076"></div>
-                    <div class="art-object454626314"></div>
+                    <div class="art-object2107113112"></div>
+                    <div class="art-object464636792"></div>
 
                 </div>
 
