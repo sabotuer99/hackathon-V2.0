@@ -27,16 +27,18 @@ namespace HackathonFoShiz.Controllers
             IEnumerable<erItemNeedHaveViewModel> needHaves = new List<erItemNeedHaveViewModel>();
 
             needHaves = from l in db.Locations
-                        join n in db.NeedItems on l.Id equals n.LocationId
-                        join h in db.HaveItems on n.LocationId equals h.LocationId
-                        join i in db.Items on n.ItemId equals i.Id
+                        join n in db.NeedItems on l.Id equals n.LocationId into needs
+                        from nd in needs.DefaultIfEmpty()
+                        join h in db.HaveItems on new { nd.LocationId, nd.ItemId } equals new {h.LocationId, h.ItemId} into nhgp
+                        from gp in nhgp.DefaultIfEmpty()                                                                                                
+                        join i in db.Items on nd.ItemId equals i.Id
                         where (locationId == l.Id)
                         orderby l.Id
                         select new erItemNeedHaveViewModel()
                         {
                             LocationId = l.Id,
-                            HaveQty = h.Qty,
-                            NeedQty = n.Qty,
+                            HaveQty = gp.Qty,
+                            NeedQty = nd.Qty,
                             ItemId = i.Id,
                             Description = i.Description
                         };

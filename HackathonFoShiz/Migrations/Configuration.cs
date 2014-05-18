@@ -352,6 +352,14 @@ namespace HackathonFoShiz.Migrations
                     new erNeedItem
                     {
                         LocationId = i,
+                        ItemId = 2,
+                        Qty = 17 + i,
+                        IsActive = true
+                    },
+
+                    new erNeedItem
+                    {
+                        LocationId = i,
                         ItemId = 1,
                         Qty = 175 - i,
                         IsActive = true
