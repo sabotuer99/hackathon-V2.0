@@ -1,6 +1,12 @@
+<<<<<<< HEAD
+﻿var mainApp = angular.module('mainApp', ['ngRoute', 'ngGrid', 'ngAnimate', 'locationServices', 'locationControllers', 'locationListController', 'controllersModule', 'gridDirectiveController','itemControllers','itemServices','mapControllers']);
+console.log("here");
+=======
 ﻿var mainApp = angular.module('mainApp', ['ngRoute', 'ngGrid', 'ngAnimate', 'locationServices',
     'locationControllers', 'locationListController', 'controllersModule', 'gridDirectiveController',
-    'itemControllers', 'itemServices', 'eventServices', 'eventSelectionController', 'mapControllers']);
+    'itemControllers', 'itemServices', 'eventServices', 'eventSelectionController']);
+
+>>>>>>> 7f0c059ef7d6ac5c755bd5305b6d5768516ce817
 mainApp.config([
     '$routeProvider',
     function ($routeProvider) {
@@ -25,11 +31,11 @@ mainApp.config([
                 templateUrl: '/Partials/EventSelection.html',
                 controller: 'eventSelectionController'
             }).
-             when('/crisismap', {
+            when('/crisismap', {
                 templateUrl: '/Partials/CrisisMap.html',
                 controller: 'mapControllers'
             }).
-
+            
             //when('/cards/:cardId', {
             //    templateUrl: '/Scripts/app/Views/detail.html',
             //    controller: 'cardDetailController'
