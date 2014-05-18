@@ -184,6 +184,8 @@
     <Compile Include="Models\erPeople.cs" />
     <Compile Include="Models\erPeopleLocation.cs" />
     <Compile Include="Models\erItemNeedHaveViewModel.cs" />
+    <Compile Include="Models\erHaveItemSimple.cs" />
+    <Compile Include="Models\erNeedItemSimple.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
