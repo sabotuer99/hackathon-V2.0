@@ -1,4 +1,6 @@
-﻿var mainApp = angular.module('mainApp', ['ngRoute', 'ngGrid', 'ngAnimate', 'locationServices', 'locationControllers', 'locationListController', 'controllersModule', 'gridDirectiveController']);
+﻿var mainApp = angular.module('mainApp', ['ngRoute', 'ngGrid', 'ngAnimate', 'locationServices',
+    'locationControllers', 'locationListController', 'controllersModule', 'gridDirectiveController',
+    'itemControllers', 'itemServices', 'eventServices', 'eventSelectionController']);
 
 mainApp.config([
     '$routeProvider',
@@ -15,8 +17,16 @@ mainApp.config([
             .when('/locationList', {
                 templateUrl: '/Partials/LocationList.html',
                 controller: 'locationListController'
+            })
+            .when('/item', {
+                templateUrl: '/Partials/Item.html',
+                controller: 'itemControllers'
+            })
+            .when('/eventSelection', {
+                templateUrl: '/Partials/EventSelection.html',
+                controller: 'eventSelectionController'
             }).
-
+            
             //when('/cards/:cardId', {
             //    templateUrl: '/Scripts/app/Views/detail.html',
             //    controller: 'cardDetailController'
@@ -26,7 +36,7 @@ mainApp.config([
             //    controller: 'carController'
             //}).
             otherwise({
-                redirectTo: '/locationList'
+                redirectTo: '/eventSelection'
             });
     }
 ]);

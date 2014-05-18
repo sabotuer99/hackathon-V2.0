@@ -12,50 +12,42 @@ using HackathonFoShiz.Models;
 
 namespace HackathonFoShiz.Controllers
 {
-    public class LocationController : ApiController
+    public class ItemTypeController : ApiController
     {
         private EmergencyResponseDb db = new EmergencyResponseDb();
 
-        // GET api/Location
-        public IEnumerable<erLocation> GetLocations()
+        // GET api/ItemType
+        public IEnumerable<erItemType> GeterItemTypes()
         {
-            return db.Locations.AsEnumerable();
+            return db.ItemTypes.AsEnumerable();
         }
 
-        // GET api/Location/GetLocationsByEventId
-        [HttpGet]
-        public IEnumerable<erLocation> GetLocationsByEventId(int eventId)
+        // GET api/ItemType/5
+        public erItemType GeterItemType(int id)
         {
-            var locations = db.Locations.Where(w => w.EventId == eventId);
-            return locations.AsEnumerable();
-        }
-
-        // GET api/Location/5
-        public erLocation GetLocation(int id)
-        {
-            erLocation location = db.Locations.Find(id);
-            if (location == null)
+            erItemType eritemtype = db.ItemTypes.Find(id);
+            if (eritemtype == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
             }
 
-            return location;
+            return eritemtype;
         }
 
-        // PUT api/Location/5
-        public HttpResponseMessage PutLocation(int id, erLocation location)
+        // PUT api/ItemType/5
+        public HttpResponseMessage PuterItemType(int id, erItemType eritemtype)
         {
             if (!ModelState.IsValid)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
 
-            if (id != location.Id)
+            if (id != eritemtype.Id)
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
 
-            db.Entry(location).State = EntityState.Modified;
+            db.Entry(eritemtype).State = EntityState.Modified;
 
             try
             {
@@ -69,16 +61,16 @@ namespace HackathonFoShiz.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        // POST api/Location
-        public HttpResponseMessage PostLocation(erLocation location)
+        // POST api/ItemType
+        public HttpResponseMessage PosterItemType(erItemType eritemtype)
         {
             if (ModelState.IsValid)
             {
-                db.Locations.Add(location);
+                db.ItemTypes.Add(eritemtype);
                 db.SaveChanges();
 
-                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, location);
-                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = location.Id }));
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, eritemtype);
+                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = eritemtype.Id }));
                 return response;
             }
             else
@@ -87,16 +79,16 @@ namespace HackathonFoShiz.Controllers
             }
         }
 
-        // DELETE api/Location/5
-        public HttpResponseMessage DeleteLocation(int id)
+        // DELETE api/ItemType/5
+        public HttpResponseMessage DeleteerItemType(int id)
         {
-            erLocation location = db.Locations.Find(id);
-            if (location == null)
+            erItemType eritemtype = db.ItemTypes.Find(id);
+            if (eritemtype == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }
 
-            db.Locations.Remove(location);
+            db.ItemTypes.Remove(eritemtype);
 
             try
             {
@@ -107,7 +99,7 @@ namespace HackathonFoShiz.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
             }
 
-            return Request.CreateResponse(HttpStatusCode.OK, location);
+            return Request.CreateResponse(HttpStatusCode.OK, eritemtype);
         }
 
         protected override void Dispose(bool disposing)

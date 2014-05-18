@@ -83,7 +83,10 @@ gridDirectiveController.controller('gridDirectiveController', ['$scope', '$locat
     $scope.navigate = function (path, row) {
         var isDebug = true;
         console.log(row);
-        path = path + row.entity.Id;
+        if (row.entity.Id)
+            path = path + row.entity.Id;
+        else if (row.entity.ID)
+            path = path + row.entity.ID;
 
         //loggingService.debug(isDebug, 'mainController.navigate - ' + path);
         $location.path(path);

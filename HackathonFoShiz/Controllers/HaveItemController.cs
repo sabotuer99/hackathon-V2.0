@@ -12,50 +12,50 @@ using HackathonFoShiz.Models;
 
 namespace HackathonFoShiz.Controllers
 {
-    public class LocationController : ApiController
+    public class HaveItemController : ApiController
     {
         private EmergencyResponseDb db = new EmergencyResponseDb();
 
-        // GET api/Location
-        public IEnumerable<erLocation> GetLocations()
+        // GET api/HaveItem
+        public IEnumerable<erHaveItem> GeterHaveItems()
         {
-            return db.Locations.AsEnumerable();
+            return db.HaveItems.AsEnumerable();
         }
 
-        // GET api/Location/GetLocationsByEventId
+        // GET api/NeedItem/GetNeedsByLocationId
         [HttpGet]
-        public IEnumerable<erLocation> GetLocationsByEventId(int eventId)
+        public IEnumerable<erHaveItem> GetHasByLocationId(int locationId)
         {
-            var locations = db.Locations.Where(w => w.EventId == eventId);
-            return locations.AsEnumerable();
+            var has = db.HaveItems.Where(w => w.LocationId == locationId);
+            return has.AsEnumerable();
         }
 
-        // GET api/Location/5
-        public erLocation GetLocation(int id)
+        // GET api/HaveItem/5
+        public erHaveItem GeterHaveItem(int id)
         {
-            erLocation location = db.Locations.Find(id);
-            if (location == null)
+            erHaveItem erhaveitem = db.HaveItems.Find(id);
+            if (erhaveitem == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
             }
 
-            return location;
+            return erhaveitem;
         }
 
-        // PUT api/Location/5
-        public HttpResponseMessage PutLocation(int id, erLocation location)
+        // PUT api/HaveItem/5
+        public HttpResponseMessage PuterHaveItem(int id, erHaveItem erhaveitem)
         {
             if (!ModelState.IsValid)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
 
-            if (id != location.Id)
+            if (id != erhaveitem.Id)
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
 
-            db.Entry(location).State = EntityState.Modified;
+            db.Entry(erhaveitem).State = EntityState.Modified;
 
             try
             {
@@ -69,16 +69,16 @@ namespace HackathonFoShiz.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        // POST api/Location
-        public HttpResponseMessage PostLocation(erLocation location)
+        // POST api/HaveItem
+        public HttpResponseMessage PosterHaveItem(erHaveItem erhaveitem)
         {
             if (ModelState.IsValid)
             {
-                db.Locations.Add(location);
+                db.HaveItems.Add(erhaveitem);
                 db.SaveChanges();
 
-                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, location);
-                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = location.Id }));
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, erhaveitem);
+                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = erhaveitem.Id }));
                 return response;
             }
             else
@@ -87,16 +87,16 @@ namespace HackathonFoShiz.Controllers
             }
         }
 
-        // DELETE api/Location/5
-        public HttpResponseMessage DeleteLocation(int id)
+        // DELETE api/HaveItem/5
+        public HttpResponseMessage DeleteerHaveItem(int id)
         {
-            erLocation location = db.Locations.Find(id);
-            if (location == null)
+            erHaveItem erhaveitem = db.HaveItems.Find(id);
+            if (erhaveitem == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }
 
-            db.Locations.Remove(location);
+            db.HaveItems.Remove(erhaveitem);
 
             try
             {
@@ -107,7 +107,7 @@ namespace HackathonFoShiz.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
             }
 
-            return Request.CreateResponse(HttpStatusCode.OK, location);
+            return Request.CreateResponse(HttpStatusCode.OK, erhaveitem);
         }
 
         protected override void Dispose(bool disposing)

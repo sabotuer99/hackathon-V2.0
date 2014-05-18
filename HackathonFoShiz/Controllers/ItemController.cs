@@ -12,50 +12,42 @@ using HackathonFoShiz.Models;
 
 namespace HackathonFoShiz.Controllers
 {
-    public class LocationController : ApiController
+    public class ItemController : ApiController
     {
         private EmergencyResponseDb db = new EmergencyResponseDb();
 
-        // GET api/Location
-        public IEnumerable<erLocation> GetLocations()
+        // GET api/Item
+        public IEnumerable<erItem> GeterItems()
         {
-            return db.Locations.AsEnumerable();
+            return db.Items.AsEnumerable();
         }
 
-        // GET api/Location/GetLocationsByEventId
-        [HttpGet]
-        public IEnumerable<erLocation> GetLocationsByEventId(int eventId)
+        // GET api/Item/5
+        public erItem GeterItem(int id)
         {
-            var locations = db.Locations.Where(w => w.EventId == eventId);
-            return locations.AsEnumerable();
-        }
-
-        // GET api/Location/5
-        public erLocation GetLocation(int id)
-        {
-            erLocation location = db.Locations.Find(id);
-            if (location == null)
+            erItem eritem = db.Items.Find(id);
+            if (eritem == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
             }
 
-            return location;
+            return eritem;
         }
 
-        // PUT api/Location/5
-        public HttpResponseMessage PutLocation(int id, erLocation location)
+        // PUT api/Item/5
+        public HttpResponseMessage PuterItem(int id, erItem eritem)
         {
             if (!ModelState.IsValid)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
 
-            if (id != location.Id)
+            if (id != eritem.Id)
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
 
-            db.Entry(location).State = EntityState.Modified;
+            db.Entry(eritem).State = EntityState.Modified;
 
             try
             {
@@ -69,16 +61,16 @@ namespace HackathonFoShiz.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        // POST api/Location
-        public HttpResponseMessage PostLocation(erLocation location)
+        // POST api/Item
+        public HttpResponseMessage PosterItem(erItem eritem)
         {
             if (ModelState.IsValid)
             {
-                db.Locations.Add(location);
+                db.Items.Add(eritem);
                 db.SaveChanges();
 
-                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, location);
-                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = location.Id }));
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, eritem);
+                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = eritem.Id }));
                 return response;
             }
             else
@@ -87,16 +79,16 @@ namespace HackathonFoShiz.Controllers
             }
         }
 
-        // DELETE api/Location/5
-        public HttpResponseMessage DeleteLocation(int id)
+        // DELETE api/Item/5
+        public HttpResponseMessage DeleteerItem(int id)
         {
-            erLocation location = db.Locations.Find(id);
-            if (location == null)
+            erItem eritem = db.Items.Find(id);
+            if (eritem == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }
 
-            db.Locations.Remove(location);
+            db.Items.Remove(eritem);
 
             try
             {
@@ -107,7 +99,7 @@ namespace HackathonFoShiz.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
             }
 
-            return Request.CreateResponse(HttpStatusCode.OK, location);
+            return Request.CreateResponse(HttpStatusCode.OK, eritem);
         }
 
         protected override void Dispose(bool disposing)
